@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Image } from 'antd';
 
-function App() {
+export default function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: "flex", justifyContent: "start", alignItems: "flex-start", height: "100vh" }}>
+      <div style={{ position: "static" }}>
+        <Image
+          preview={false}
+          width={400}
+          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        />
+      </div>
     </div>
   );
 }
-
-export default App;
