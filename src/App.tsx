@@ -1,17 +1,11 @@
 import './App.css';
-import { Image } from 'antd';
+import TopContentComp from './components/top-content';
 
 export default function App() {
 
   return (
-    <div style={{ display: "flex", justifyContent: "start", alignItems: "flex-start", height: "100vh" }}>
-      <div style={{ position: "static" }}>
-        <Image
-          preview={false}
-          width={400}
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-        />
-      </div>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", height: "100vh" }}>
+      <TopContentComp />
     </div>
   );
 }

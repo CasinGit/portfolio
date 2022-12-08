@@ -1,8 +1,9 @@
 import React, { PropsWithChildren } from "react";
-import { Layout, Menu } from 'antd';
+import { Layout, Anchor, Menu } from 'antd';
 import HeaderComponent from "./header";
 import FooterComponent from "./footer";
 const { Header, Content, Footer, Sider } = Layout;
+const { Link } = Anchor;
 
 export default function Index(
     { children }: PropsWithChildren
@@ -11,24 +12,15 @@ export default function Index(
         <Layout>
             <Sider
                 width={150}
-                style={{ position: "fixed", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", height: "100%", width: "100px", backgroundColor: "rgba( 255, 255, 255, 0.0 )" }}
+                style={{ position: "fixed", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "start", height: "100%", backgroundColor: "rgba( 255, 255, 255, 0.0 )" }}
             >
-                <Menu
-                    style={{ background: "rgba( 255, 255, 255, 0.0 )", borderInlineEnd: "rgba(0, 0, 0, 0.0)", marginTop: "300px" }}
-                    // defaultSelectedKeys={['1']}
-                    items={["Home", "AboutMe", "Skills", "Project", "Career"].map(
-                        (value, index) => ({
-                            key: value,
-                            label: `${value}`,
-                            style: {
-                                backgroundColor: "rgba( 255, 255, 255, 0.0 )"
-                            },
-                            onClick: (evt) => {
-                                console.log("클릭이벤트", evt)
-                            }
-                        }),
-                    )}
-                />
+                <Anchor style={{ marginTop: "200px" }}>
+                    <Link href="#top-content" title="Top" />
+                    <Link href="#about-me" title="AboutMe" />
+                    <Link href="#skills" title="Skills" />
+                    <Link href="#projects" title="Projects" />
+                    <Link href="#career" title="career" />
+                </Anchor>
             </Sider>
             <Layout>
                 <Header style={{ position: "fixed", background: "rgba( 0, 0, 0, 0.0 )" }}>
