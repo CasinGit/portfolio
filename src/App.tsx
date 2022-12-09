@@ -1,11 +1,15 @@
 import './App.css';
+import AboutMeComp from './components/about-me';
+import SkillsComp from './components/skills';
 import TopContentComp from './components/top-content';
 
 export default function App() {
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", height: "100vh" }}>
+    <div className='App'>
       <TopContentComp />
+      <AboutMeComp />
+      <SkillsComp />
     </div>
   );
 }

@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+}
+
+.container::after {
+    background: url(../../public/background_image.jpg) top center;
+    background-size: cover;
+    content: "";
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.typo_name {
+    font-weight: 600;
+    font-size: 52px;
+    color: white !important;
+    text-shadow: 0px 0px 10px black;
+}
+
+.typo_desc {
+    font-weight: 600;
+    font-size: 52px;
+    color: white;
+    text-shadow: 0px 0px 6px black;
+}

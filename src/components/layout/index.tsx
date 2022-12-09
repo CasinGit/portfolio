@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from "react";
-import { Layout, Anchor, Menu } from 'antd';
+import styles from './index.module.css';
+import { Layout, Anchor } from 'antd';
 import HeaderComponent from "./header";
 import FooterComponent from "./footer";
 const { Header, Content, Footer, Sider } = Layout;
@@ -10,26 +11,23 @@ export default function Index(
 ) {
     return (
         <Layout>
-            <Sider
-                width={150}
-                style={{ position: "fixed", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "start", height: "100%", backgroundColor: "rgba( 255, 255, 255, 0.0 )" }}
-            >
-                <Anchor style={{ marginTop: "200px" }}>
+            <Sider className={styles.Sider} width={150}>
+                <Anchor style={{ marginTop: "200px", borderRadius: "15px", backgroundColor: "rgba(0, 0, 0, 0.2)", padding: 10 }} >
                     <Link href="#top-content" title="Top" />
                     <Link href="#about-me" title="AboutMe" />
                     <Link href="#skills" title="Skills" />
                     <Link href="#projects" title="Projects" />
-                    <Link href="#career" title="career" />
+                    <Link href="#career" title="Career" />
                 </Anchor>
             </Sider>
             <Layout>
-                <Header style={{ position: "fixed", background: "rgba( 0, 0, 0, 0.0 )" }}>
+                <Header className={styles.Header}>
                     <HeaderComponent />
                 </Header>
                 <Content>
                     {children}
                 </Content>
-                <Footer>
+                <Footer className={styles.Footer}>
                     <FooterComponent />
                 </Footer>
             </Layout>

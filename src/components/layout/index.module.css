@@ -1,0 +1,31 @@
+.Sider {
+    position: fixed !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    height: 100%;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0.0) !important;
+    z-index: 1;
+}
+
+.Header {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.0) !important;
+    z-index: 1;
+}
+
+.Footer {
+    background-color: #040b14 !important;
+    color: white !important;
+    position: relative;
+}
+
+a {
+    color: white !important;
+    mix-blend-mode: difference !important;
+}

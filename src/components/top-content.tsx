@@ -1,14 +1,30 @@
+import { Typography } from 'antd';
+import styles from './top-content.module.css';
+import { useState, useEffect } from 'react';
+
 export default function TopContentComp() {
+    const motionTxt = "웹 개발자 포트폴리오";
+    const [text, setText] = useState<string>("");
+    const [count, setCount] = useState<number>(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            console.log("인터벌 실행");
+            setText(text + motionTxt[count]); // 이전 set한 문자 + 다음 문자
+            setCount(count + 1); // 개수 만큼 체크 
+        }, 100);
+        if (motionTxt.length === text.length) clearInterval(interval);
+        return () => clearInterval(interval);
+    })
 
     return (
-        <div style={{
-            background: "url(https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png) top center",
-            backgroundSize: "cover",
-            width: "100%",
-            height: "100vh"
-        }}
-        >
-            메인 컨텐츠
+        <div className={styles.container} >
+            <Typography className={styles.typo_name}>
+                - 김기협 -
+            </Typography>
+            <Typography className={styles.typo_desc}>
+                {text}
+            </Typography>
         </div>
     )
 }
