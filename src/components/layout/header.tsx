@@ -1,10 +1,10 @@
-import { VerticalAlignTopOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import IconButton from "@mui/material/IconButton";
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 
 export default function HeaderComponent() {
     return (
-        <div style={{ display: "flex", alignItems: "flex-end" }}>
-            <Button ghost color="red" size={'large'} icon={<VerticalAlignTopOutlined style={{ color: "black" }} />} style={{ boxShadow: "0px 0px 5px 1px black" }} />
-        </div>
+        <IconButton sx={{ m: 3 }}>
+            <KeyboardDoubleArrowUpIcon />
+        </IconButton>
     )
 }

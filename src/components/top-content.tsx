@@ -1,4 +1,4 @@
-import { Typography } from 'antd';
+// import { Typography } from 'antd';
 import styles from './top-content.module.css';
 import { useState, useEffect } from 'react';
 
@@ -19,12 +19,12 @@ export default function TopContentComp() {
 
     return (
         <div className={styles.container} >
-            <Typography className={styles.typo_name}>
+            {/* <Typography className={styles.typo_name}>
                 - 김기협 -
             </Typography>
             <Typography className={styles.typo_desc}>
                 {text}
-            </Typography>
+            </Typography> */}
         </div>
     )
 }

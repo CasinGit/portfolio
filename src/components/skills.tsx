@@ -1,13 +1,19 @@
-import { Typography } from "antd";
+// import { Card, Typography } from "antd";
+import styles from './skills.module.css';
 
 export default function SkillsComp() {
     return (
-        <div style={{ backgroundColor: "white", zIndex: 0, display: "flex", flexDirection: "column", width: "100%" }}>
-            <Typography.Title>Skills Component</Typography.Title>
-            <Typography.Title>Skills Component</Typography.Title>
-            <Typography.Title>Skills Component</Typography.Title>
-            <Typography.Title>Skills Component</Typography.Title>
-            <Typography.Title>Skills Component</Typography.Title>
+        <div className={styles.container}>
+            {/* <Typography className={styles.typo_title}>Skills</Typography>
+            <Card>
+                <Card.Meta title="카드 메타" />
+                <Card.Grid>
+                    <Typography className={styles.typo_title}>그리드-1</Typography>
+                </Card.Grid>
+                <Card.Grid>
+                    <Typography className={styles.typo_title}>그리드-2</Typography>
+                </Card.Grid>
+            </Card> */}
         </div>
     )
 }
