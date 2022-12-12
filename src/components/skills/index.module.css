@@ -4,18 +4,26 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: aquamarine;
     z-index: 0;
     padding: 10px;
     padding-bottom: 30px;
 }
 
+.inContainer {
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* background-color: red; */
+}
+
 .typo_title {
-    font-weight: 600;
-    font-size: 52px;
-    color: black !important;
+    font-weight: 600 !important;
+    font-size: 52px !important;
+    color: black;
     text-shadow: 2px 2px 5px gray;
     text-decoration: underline darkslategray solid 3px;
     text-underline-offset: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }

@@ -7,9 +7,9 @@ export default function App() {
 
   return (
     <div className='App'>
-      {/* <TopContentComp /> */}
-      {/* <AboutMeComp /> */}
-      {/* <SkillsComp /> */}
+      <TopContentComp />
+      <AboutMeComp />
+      <SkillsComp />
     </div>
   );
 }

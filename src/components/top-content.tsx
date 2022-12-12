@@ -1,6 +1,7 @@
 // import { Typography } from 'antd';
 import styles from './top-content.module.css';
 import { useState, useEffect } from 'react';
+import { Box, Typography } from '@mui/material';
 
 export default function TopContentComp() {
     const motionTxt = "웹 개발자 포트폴리오";
@@ -14,17 +15,18 @@ export default function TopContentComp() {
             setCount(count + 1); // 개수 만큼 체크 
         }, 100);
         if (motionTxt.length === text.length) clearInterval(interval);
+
         return () => clearInterval(interval);
     })
 
     return (
-        <div className={styles.container} >
-            {/* <Typography className={styles.typo_name}>
+        <Box className={styles.container} >
+            <Typography className={styles.typo_name}>
                 - 김기협 -
             </Typography>
             <Typography className={styles.typo_desc}>
                 {text}
-            </Typography> */}
-        </div>
+            </Typography>
+        </Box>
     )
 }

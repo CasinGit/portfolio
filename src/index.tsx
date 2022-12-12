@@ -23,5 +23,4 @@ root.render(
       <App />
     </Layout>
   </ThemeProvider>
-
 );
