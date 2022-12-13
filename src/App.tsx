@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import './App.css';
 import AboutMeComp from './components/about-me';
 import SkillsComp from './components/skills';
@@ -7,6 +8,7 @@ export default function App() {
 
   return (
     <div className='App'>
+      <Typography component="h2" id='Top' />
       <TopContentComp />
       <AboutMeComp />
       <SkillsComp />

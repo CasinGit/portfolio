@@ -8,7 +8,7 @@ import IntroductionArea from './introduction-area';
 export default function AboutMeComp() {
     return (
         <Box className={styles.container}>
-            <Typography className={styles.typo_title}>
+            <Typography component="h2" className={styles.typo_title} id='AboutMe'>
                 About Me
             </Typography>
             <Box className={styles.inContainer}>

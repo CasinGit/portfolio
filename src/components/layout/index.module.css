@@ -1,12 +1,16 @@
 .Sider {
     position: fixed !important;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: start;
-    height: 100%;
-    width: 150px;
-    background-color: rgba(0, 0, 0, 0.0) !important;
+    /* height: 100%; */
+    top: 300px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.2) !important;
     z-index: 1;
 }
 

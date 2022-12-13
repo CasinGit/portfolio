@@ -1,3 +1,4 @@
+import { Box, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import { getIntersectionObserver } from "../../lib/observer";
 
@@ -7,16 +8,27 @@ export default function Toc() {
 
     useEffect(() => {
         const observer = getIntersectionObserver(setCurrentId);
-        const headingElements = Array.from(document.querySelectorAll("h2, h3"));
+        const headingElements = Array.from(document.querySelectorAll("h1, h2"));
         setHeadingEls(headingElements);
         headingElements.map((header) => {
             observer.observe(header);
         })
     }, [])
 
+    // 현재 Markdown 값 가져오기
+    console.log(headingEls);
+    // 스크롤시 헤더 값
+    console.log(currentId);
+
     return (
         <>
-            {headingEls}
+            {headingEls.length !== 0 &&
+                <Box>
+                    {headingEls.map(one => (
+                        <Button href={`#${one.id}`}>{one.id}</Button>
+                    ))}
+                </Box>
+            }
         </>
     )
 }

@@ -4,6 +4,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Skill from './skill';
+import { ImageList, ImageListItem } from '@mui/material';
 
 export type skillType = { title: string, imgUrl: string };
 type skillsType = {
@@ -24,56 +25,62 @@ const skills: skillsType = {
     ],
     os: [
         { title: "Linux", imgUrl: "/logo/Linux_Logo.png" },
-        { title: "ubuntu", imgUrl: "/logo/ubuntu_logo.png" },
+        { title: "WindowsServer", imgUrl: "/logo/WindowsServer.png" },
     ],
     frame_lib: [
-        { title: "Express.js", imgUrl: "" },
-        { title: "React", imgUrl: "" },
-        { title: "ReactNative", imgUrl: "" },
-        { title: "Next.js", imgUrl: "" },
-        { title: "Redux", imgUrl: "" },
-        { title: "Axios", imgUrl: "" },
+        { title: "Express.js", imgUrl: "/logo/express.png" },
+        { title: "React", imgUrl: "/logo/_React.png" },
+        { title: "ReactNative", imgUrl: "/logo/React_native.png" },
+        { title: "Next.js", imgUrl: "/logo/Nextjs-logo.svg" },
+        { title: "Redux", imgUrl: "/logo/Redux.png" },
+        { title: "Axios", imgUrl: "/logo/axios.svg" },
     ],
     db: [
-        { title: "MongoDB", imgUrl: "" },
-        { title: "MySQL", imgUrl: "" },
-        { title: "MsSQL", imgUrl: "" },
+        { title: "MongoDB", imgUrl: "/logo/mongoDB.svg" },
+        { title: "MySQL", imgUrl: "/logo/mySQL.svg" },
+        { title: "MsSQL", imgUrl: "/logo/msSQL.png" },
     ],
     ide: [
-        { title: "Eclipse", imgUrl: "" },
-        { title: "VisualStudio", imgUrl: "" },
-        { title: "VisualStudioCode", imgUrl: "" },
+        { title: "Eclipse", imgUrl: "/logo/eclipse.svg" },
+        { title: "VisualStudio", imgUrl: "/logo/VS.svg" },
+        { title: "VisualStudioCode", imgUrl: "/logo/VSC.svg" },
     ],
     etc: [
-        { title: "Excel", imgUrl: "" },
-        { title: "GitHub", imgUrl: "" },
-        { title: "Firebase", imgUrl: "" },
-        { title: "AmazonAWS", imgUrl: "" },
-        { title: "GCP", imgUrl: "" },
+        { title: "Excel", imgUrl: "/logo/excel.svg" },
+        { title: "GitHub", imgUrl: "/logo/GitHub_Logo.png" },
+        { title: "Firebase", imgUrl: "/logo/Firebase.svg" },
+        { title: "AmazonAWS", imgUrl: "/logo/aws.svg" },
+        { title: "GCP", imgUrl: "/logo/GCP.svg" },
     ]
 }
 
 export default function SkillsComp() {
     return (
         <Box className={styles.container}>
-            <Typography className={styles.typo_title}>
+            <Typography component="h2" className={styles.typo_title} id='Skills'>
                 Skills
             </Typography>
             <Box className={styles.inContainer}>
-                <Grid container spacing={3} p={3} columns={{ xs: 4, sm: 8, md: 12 }}>
-                    {/* 언어 */}
-                    <Skill item={skills.language} />
-                    {/* OS */}
-                    <Skill item={skills.os} />
-                    {/* 프레임워크 + 라이브러리 */}
-                    <Skill item={skills.frame_lib} />
-                    {/* 데이터베이스 */}
-                    <Skill item={skills.db} />
-                    {/* IDE */}
-                    <Skill item={skills.ide} />
-                    {/* ETC */}
-                    <Skill item={skills.etc} />
-                </Grid>
+                <ImageList variant="masonry" cols={3} gap={10}>
+                    <ImageListItem sx={{ overflow: "auto" }}>
+                        <Skill item={skills.language} header="언어" />
+                    </ImageListItem>
+                    <ImageListItem sx={{ overflow: "auto" }}>
+                        <Skill item={skills.os} header="OS" />
+                    </ImageListItem>
+                    <ImageListItem sx={{ overflow: "auto" }}>
+                        <Skill item={skills.frame_lib} header="프레임워크 + 라이브러리" />
+                    </ImageListItem>
+                    <ImageListItem sx={{ overflow: "auto" }}>
+                        <Skill item={skills.db} header="DB" />
+                    </ImageListItem>
+                    <ImageListItem sx={{ overflow: "auto" }}>
+                        <Skill item={skills.ide} header="IDE" />
+                    </ImageListItem>
+                    <ImageListItem sx={{ overflow: "auto" }}>
+                        <Skill item={skills.etc} header="ETC" />
+                    </ImageListItem>
+                </ImageList>
             </Box>
         </Box>
     )
