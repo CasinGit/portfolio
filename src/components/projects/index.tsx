@@ -1,13 +1,17 @@
 import styles from './index.module.css';
 import { Button, MobileStepper } from '@mui/material';
+import Carousel from 'react-material-ui-carousel';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import Carousel from 'react-material-ui-carousel';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkIcon from '@mui/icons-material/Link';
+import FlipToFrontIcon from '@mui/icons-material/FlipToFront';
+import FlipToBackIcon from '@mui/icons-material/FlipToBack';
+import StorageIcon from '@mui/icons-material/Storage';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 
 var items = [
@@ -35,7 +39,7 @@ var items = [
 function Item(props: any) {
     return (
         <Paper variant='outlined' sx={{ minHeight: 300, position: "relative" }}>
-            <img src={props.item.url} alt={props.item.label} style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, objectFit: "fill", borderRadius: "3px" }} />
+            <img src={props.item.url} alt={props.item.label} style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, objectFit: "cover", borderRadius: "3px" }} />
         </Paper>
     )
 }
@@ -69,6 +73,7 @@ export default function ProjectsComp() {
                 {/* Main - 나중에 컴포넌트 단위로 프로젝트 분할 예정////// */}
 
                 <Grid container spacing={2}>
+
                     <Grid xs={16} md={5.5}>
                         <Carousel
                             autoPlay={false}
@@ -96,25 +101,70 @@ export default function ProjectsComp() {
 
                     <Grid container spacing={2} >
                         <Grid xs={16} md={6} aria-label='project-main-function' sx={{ display: "block" }}>
-                            <Typography sx={{ display: "inline-block" }}>
+                            <Typography sx={{ fontWeight: 600 }}>
                                 주요 기능
                             </Typography>
-                            <Typography ml={2} sx={{ display: "inline-block" }}>
+                            <Typography ml={2} sx={{}}>
                                 NextAuth를 이용한 소셜 미디어 로그인, GoogleMaps를 이용한 위치 확인, 주변 장소 검색 API를 사용하여 숙소 위치 검색, 숙소 예약시 paypal로 결제하는 기능
                             </Typography>
                         </Grid>
 
                         <Grid xs={16} md={6} aria-label='project-etc' sx={{ display: "inline-block" }}>
-                            <Typography>
+                            <Typography sx={{ fontWeight: 600 }}>
                                 GitHub
+                                <GitHubIcon />
                             </Typography>
                             <Typography ml={2}>
                                 깃헙 주소...
                             </Typography>
+
+                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
+                                URL
+                                <LinkIcon />
+                            </Typography>
+                            <Typography ml={2}>
+                                배포 주소...
+                            </Typography>
+
+                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
+                                Frontend
+                                <FlipToFrontIcon />
+                            </Typography>
+                            <Typography ml={2}>
+                                프론트엔드 사용 기술...
+                            </Typography>
+
+                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
+                                Backend
+                                <FlipToBackIcon />
+                            </Typography>
+                            <Typography ml={2}>
+                                백엔드 사용 기술...
+                            </Typography>
+
+                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
+                                DB
+                                <StorageIcon />
+                            </Typography>
+                            <Typography ml={2}>
+                                사용한 DB...
+                            </Typography>
+
+                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
+                                Etc
+                                <MoreHorizIcon />
+                            </Typography>
+                            <Typography ml={2}>
+                                Etc...
+                            </Typography>
                         </Grid>
                     </Grid>
+
                 </Grid>
 
+                <Button variant='outlined' fullWidth sx={{ mt: 3 }}>
+                    상세보기
+                </Button>
             </Paper >
 
         </Box >
