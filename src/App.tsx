@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import './App.css';
 import AboutMeComp from './components/about-me';
+import CareersComp from './components/careers';
 import ProjectsComp from './components/projects';
 import SkillsComp from './components/skills';
 import TopContentComp from './components/top-content';
@@ -14,6 +15,7 @@ export default function App() {
       <AboutMeComp />
       <SkillsComp />
       <ProjectsComp />
+      <CareersComp />
     </div>
   );
 }

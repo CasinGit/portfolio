@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import { Button, MobileStepper } from '@mui/material';
+import Button from '@mui/material/Button';
 import Carousel from 'react-material-ui-carousel';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -109,50 +109,50 @@ export default function ProjectsComp() {
                             </Typography>
                         </Grid>
 
-                        <Grid xs={16} md={6} aria-label='project-etc' sx={{ display: "inline-block" }}>
-                            <Typography sx={{ fontWeight: 600 }}>
-                                GitHub
+                        <Grid xs={16} md={6} aria-label='project-etc'>
+                            <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                                 <GitHubIcon />
+                                GitHub
                             </Typography>
                             <Typography ml={2}>
                                 깃헙 주소...
                             </Typography>
 
-                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
-                                URL
+                            <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
                                 <LinkIcon />
+                                URL
                             </Typography>
                             <Typography ml={2}>
                                 배포 주소...
                             </Typography>
 
-                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
-                                Frontend
+                            <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
                                 <FlipToFrontIcon />
+                                Frontend
                             </Typography>
                             <Typography ml={2}>
                                 프론트엔드 사용 기술...
                             </Typography>
 
-                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
-                                Backend
+                            <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
                                 <FlipToBackIcon />
+                                Backend
                             </Typography>
                             <Typography ml={2}>
                                 백엔드 사용 기술...
                             </Typography>
 
-                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
-                                DB
+                            <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
                                 <StorageIcon />
+                                DB
                             </Typography>
                             <Typography ml={2}>
                                 사용한 DB...
                             </Typography>
 
-                            <Typography sx={{ fontWeight: 600, mt: 1 }}>
-                                Etc
+                            <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
                                 <MoreHorizIcon />
+                                Etc
                             </Typography>
                             <Typography ml={2}>
                                 Etc...
