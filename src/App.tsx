@@ -7,7 +7,6 @@ import SkillsComp from './components/skills';
 import TopContentComp from './components/top-content';
 
 export default function App() {
-
   return (
     <div className='App'>
       <Typography component="h2" id='Top' />

@@ -10,10 +10,10 @@ export default function FooterComponent() {
                 <IconButton sx={{ color: "whitesmoke" }} href="https://github.com/CasinGit">
                     <SvgIcon component={GitHub} fontSize="large" inheritViewBox />
                 </IconButton>
-                <IconButton sx={{ color: "whitesmoke" }}>
+                <IconButton sx={{ color: "whitesmoke" }} href="https://velog.io/@casin">
                     <SvgIcon component={Velog} fontSize="large" inheritViewBox />
                 </IconButton>
-                <IconButton sx={{ color: "whitesmoke" }}>
+                <IconButton sx={{ color: "whitesmoke" }} href="mailto:kkig30@naver.com">
                     <SvgIcon component={Gmail} fontSize="large" inheritViewBox />
                 </IconButton>
             </Box>

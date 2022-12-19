@@ -1,10 +1,40 @@
 import { Box, Button } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import TocContext from "../../contexts/toc-context";
 import { getIntersectionObserver } from "../../lib/observer";
 
 export default function Toc() {
+    // const TocCtx = useContext(TocContext)!;
     const [currentId, setCurrentId] = useState<string>("");
     const [headingEls, setHeadingEls] = useState<Element[]>([]);
+
+    const [active, setActive] = useState(0);
+    const TocCtx = useContext(TocContext)!;
+    const { pos } = TocCtx;
+    useEffect(() => {
+        const onScroll = () => {
+            const scrollTop = window.pageYOffset;
+
+            if (scrollTop < pos.AboutMe) return setActive(0);
+
+            if (pos.AboutMe <= scrollTop && scrollTop < pos.Skills) return setActive(1);
+
+            if (pos.Skills <= scrollTop && scrollTop < pos.Projects) return setActive(2);
+
+            if (pos.Projects <= scrollTop && scrollTop < pos.Careers) return setActive(3);
+
+            if (pos.Careers <= scrollTop) return setActive(4);
+        };
+
+        if (pos.AboutMe !== 0 && pos.Skills !== 0 && pos.Projects !== 0 && pos.Careers !== 0) {
+            window.addEventListener("scroll", onScroll);
+        }
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+        };
+    }, [pos]);
+
 
     useEffect(() => {
         const observer = getIntersectionObserver(setCurrentId);
@@ -15,17 +45,48 @@ export default function Toc() {
         })
     }, [])
 
-    // 현재 Markdown 값 가져오기
-    console.log(headingEls);
-    // 스크롤시 헤더 값
-    console.log(currentId);
+    //! 현재 Markdown 값 가져오기
+    // console.log(headingEls);
+    //! 스크롤시 헤더 값
+    // console.log(currentId);
+    //! 스크롤시 헤더 pos
+    console.log(active);
 
     return (
         <>
+            <style jsx>{`
+                .active {
+                    color: dodgerblue !important;
+                    font-weight: 600;
+                    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+                    text-decoration: underline dodgerblue solid 2px;
+                    text-underline-offset: 5px;
+                }   
+                .toc {
+                    width: 100%;
+                    border-radius: 10px;
+                    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+                }
+                .toc:hover{
+                    color: rgb(82, 189, 255) !important;
+                    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+                    text-decoration: underline rgb(110, 200, 255) solid 2px;
+                    text-underline-offset: 5px;
+                }
+            `}</style>
+
             {headingEls.length !== 0 &&
-                <Box>
-                    {headingEls.map(one => (
-                        <Button href={`#${one.id}`}>{one.id}</Button>
+                <Box sx={{ textAlign: "center" }}>
+                    {headingEls.map((one, idx) => (
+                        <Button href={`#${one.id}`} key={one.id}
+                            className={idx === active ? "toc active" : "toc"}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                document.querySelector(`#${one.id}`)?.scrollIntoView({ behavior: "smooth" })
+                            }}
+                        >
+                            {one.id}
+                        </Button>
                     ))}
                 </Box>
             }

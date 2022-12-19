@@ -5,10 +5,10 @@
   <meta charset="utf-8" />
 
   <!-- icon start -->
-  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/favicon-32.png">
+  <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-96.png" />
   <!-- icon end -->
-  
+
   <!-- Google Font 링크 -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 
@@ -16,13 +16,19 @@
   <meta name="theme-color" content="#000000" />
   <meta name="portfolio" content="김기협 포트 폴리오" />
 
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <title>신입 개발자 김기협 포트폴리오 입니다!</title>
+
+  <!-- index.html에 적용할 css 파일 import -->
+  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/index.css" />
 </head>
 
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+
+  <!-- 번들 다운로드 받는 동안 loading 화면 -->
+  <div id="loading">
+    <img src="%PUBLIC_URL%/loading.svg" style="position:absolute; width:100px; top:50%; left:50%;"/>
+  </div>
 </body>
 
 </html>

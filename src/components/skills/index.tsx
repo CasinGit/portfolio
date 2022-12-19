@@ -5,6 +5,8 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Skill from './skill';
 import { ImageList, ImageListItem } from '@mui/material';
+import TocContext from '../../contexts/toc-context';
+import { useContext, useEffect, useRef } from 'react';
 
 export type skillType = { title: string, imgUrl: string };
 type skillsType = {
@@ -55,8 +57,20 @@ const skills: skillsType = {
 }
 
 export default function SkillsComp() {
+    const TocCtx = useContext(TocContext)!;
+    const element = useRef<Element>(null);
+
+    useEffect(() => {
+        if (!element.current) return;
+        const rect = element.current.getBoundingClientRect();
+        TocCtx.setPos((pos) => ({
+            ...pos,
+            [element.current?.id as string]: rect.top + window.scrollY,
+        }));
+    }, [TocCtx.setPos])
+
     return (
-        <Box className={styles.container}>
+        <Box className={styles.container} ref={element} id="Skills">
             <Typography component="h2" className={styles.typo_title} id='Skills'>
                 Skills
             </Typography>

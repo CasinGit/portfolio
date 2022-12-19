@@ -12,6 +12,8 @@ import FlipToFrontIcon from '@mui/icons-material/FlipToFront';
 import FlipToBackIcon from '@mui/icons-material/FlipToBack';
 import StorageIcon from '@mui/icons-material/Storage';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { useContext, useEffect, useRef } from 'react';
+import TocContext from '../../contexts/toc-context';
 
 
 var items = [
@@ -45,8 +47,20 @@ function Item(props: any) {
 }
 
 export default function ProjectsComp() {
+    const TocCtx = useContext(TocContext)!;
+    const element = useRef<Element>(null);
+
+    useEffect(() => {
+        if (!element.current) return;
+        const rect = element.current.getBoundingClientRect();
+        TocCtx.setPos((pos) => ({
+            ...pos,
+            [element.current?.id as string]: rect.top + window.scrollY,
+        }));
+    }, [TocCtx.setPos])
+
     return (
-        <Box className={styles.container}>
+        <Box className={styles.container} ref={element} id="Projects">
             <Typography component="h2" className={styles.typo_title} id='Projects'>
                 Projects
             </Typography>

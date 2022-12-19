@@ -3,6 +3,7 @@ import './index.css';
 import App from './App';
 import Layout from './components/layout';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { TocContextProvider } from './contexts/toc-context';
 
 const theme = createTheme({
   // Mui Components CSS
@@ -19,8 +20,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <ThemeProvider theme={theme} >
-    <Layout>
-      <App />
-    </Layout>
+    <TocContextProvider>
+      <Layout>
+        <App />
+      </Layout>
+    </TocContextProvider>
   </ThemeProvider>
 );

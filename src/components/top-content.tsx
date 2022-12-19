@@ -1,7 +1,7 @@
 // import { Typography } from 'antd';
 import styles from './top-content.module.css';
 import { useState, useEffect } from 'react';
-import { Box, Hidden, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 export default function TopContentComp() {
     const motionTxt = "웹 개발자 포트폴리오";
