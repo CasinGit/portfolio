@@ -6,7 +6,7 @@ import { ReactComponent as Gmail } from "./svg/gmail.svg";
 export default function FooterComponent() {
     return (
         <Box sx={{ p: 3 }}>
-            <Box sx={{ mb: 2 }}>
+            <Box sx={{ mb: 2, display: "flex", gap: 2 }}>
                 <IconButton sx={{ color: "whitesmoke" }} href="https://github.com/CasinGit">
                     <SvgIcon component={GitHub} fontSize="large" inheritViewBox />
                 </IconButton>

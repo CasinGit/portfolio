@@ -58,7 +58,7 @@ export default function Toc() {
                 .active {
                     color: dodgerblue !important;
                     font-weight: 600;
-                    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+                    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
                     text-decoration: underline dodgerblue solid 2px;
                     text-underline-offset: 5px;
                 }   
@@ -69,7 +69,7 @@ export default function Toc() {
                 }
                 .toc:hover{
                     color: rgb(82, 189, 255) !important;
-                    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+                    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
                     text-decoration: underline rgb(110, 200, 255) solid 2px;
                     text-underline-offset: 5px;
                 }
