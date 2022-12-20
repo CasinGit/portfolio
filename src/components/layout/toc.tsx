@@ -68,9 +68,9 @@ export default function Toc() {
                     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
                 }
                 .toc:hover{
-                    color: rgb(82, 189, 255) !important;
+                    color: rgb(0, 108, 216) !important;
                     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
-                    text-decoration: underline rgb(110, 200, 255) solid 2px;
+                    text-decoration: underline rgb(0, 108, 216) solid 2px;
                     text-underline-offset: 5px;
                 }
             `}</style>
