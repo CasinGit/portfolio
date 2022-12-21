@@ -8,22 +8,21 @@ export default function Toc() {
     const [currentId, setCurrentId] = useState<string>("");
     const [headingEls, setHeadingEls] = useState<Element[]>([]);
 
-    const [active, setActive] = useState(0);
     const TocCtx = useContext(TocContext)!;
     const { pos } = TocCtx;
     useEffect(() => {
         const onScroll = () => {
             const scrollTop = window.pageYOffset;
 
-            if (scrollTop < pos.AboutMe) return setActive(0);
+            if (scrollTop < pos.AboutMe) return TocCtx.setActive(0);
 
-            if (pos.AboutMe <= scrollTop && scrollTop < pos.Skills) return setActive(1);
+            if (pos.AboutMe <= scrollTop && scrollTop < pos.Skills) return TocCtx.setActive(1);
 
-            if (pos.Skills <= scrollTop && scrollTop < pos.Projects) return setActive(2);
+            if (pos.Skills <= scrollTop && scrollTop < pos.Projects) return TocCtx.setActive(2);
 
-            if (pos.Projects <= scrollTop && scrollTop < pos.Careers) return setActive(3);
+            if (pos.Projects <= scrollTop && scrollTop < pos.Careers) return TocCtx.setActive(3);
 
-            if (pos.Careers <= scrollTop) return setActive(4);
+            if (pos.Careers <= scrollTop) return TocCtx.setActive(4);
         };
 
         if (pos.AboutMe !== 0 && pos.Skills !== 0 && pos.Projects !== 0 && pos.Careers !== 0) {
@@ -50,7 +49,7 @@ export default function Toc() {
     //! 스크롤시 헤더 값
     // console.log(currentId);
     //! 스크롤시 헤더 pos
-    console.log(active);
+    console.log(TocCtx.active);
 
     return (
         <>
@@ -79,7 +78,7 @@ export default function Toc() {
                 <Box sx={{ textAlign: "center" }}>
                     {headingEls.map((one, idx) => (
                         <Button href={`#${one.id}`} key={one.id}
-                            className={idx === active ? "toc active" : "toc"}
+                            className={idx === TocCtx.active ? "toc active" : "toc"}
                             onClick={(e) => {
                                 e.preventDefault()
                                 document.querySelector(`#${one.id}`)?.scrollIntoView({ behavior: "smooth" })
