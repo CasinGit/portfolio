@@ -2,9 +2,9 @@ import styles from './index.module.css';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Skill from './skill';
-import { ImageList, ImageListItem } from '@mui/material';
+import { Fade, ImageList, ImageListItem } from '@mui/material';
 import TocContext from '../../contexts/toc-context';
-import { useContext, useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 export type skillType = { title: string, imgUrl: string };
 type skillsType = {
@@ -68,31 +68,71 @@ export default function SkillsComp() {
         }));
     }, [TocCtx.setPos, element.current?.getBoundingClientRect().height])
 
+    const [show, setShow] = useState<boolean>(false);
+    useEffect(() => {
+        const target = document.querySelector("#Skills-FadeAction");
+        const callback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // entry.target.classList.add("fadeIn");
+                    setShow(true);
+                }
+            })
+        }
+        const options = {};
+        const myObserver = new IntersectionObserver(callback, options);
+        myObserver.observe(target as Element);
+    }, [])
+
     return (
         <Box className={styles.container} ref={element} id="Skills">
             <Typography component="h2" className={styles.typo_title} id='Skills'>
                 Skills
             </Typography>
-            <Box className={styles.inContainer}>
+            <Box className={styles.inContainer} id='Skills-FadeAction'>
                 <ImageList variant="masonry" cols={3} gap={10}>
-                    <ImageListItem sx={{ overflow: "auto" }}>
-                        <Skill item={skills.language} header="언어" />
-                    </ImageListItem>
-                    <ImageListItem sx={{ overflow: "auto" }}>
-                        <Skill item={skills.os} header="OS" />
-                    </ImageListItem>
-                    <ImageListItem sx={{ overflow: "auto" }}>
-                        <Skill item={skills.frame_lib} header="프레임워크 + 라이브러리" />
-                    </ImageListItem>
-                    <ImageListItem sx={{ overflow: "auto" }}>
-                        <Skill item={skills.db} header="DB" />
-                    </ImageListItem>
-                    <ImageListItem sx={{ overflow: "auto" }}>
-                        <Skill item={skills.ide} header="IDE" />
-                    </ImageListItem>
-                    <ImageListItem sx={{ overflow: "auto" }}>
-                        <Skill item={skills.etc} header="ETC" />
-                    </ImageListItem>
+                    <Fade in={show} style={{ transitionDelay: show ? "200ms" : "0ms" }}
+                        {...(show ? { timeout: 1000 } : {})}
+                    >
+                        <ImageListItem sx={{ overflow: "auto" }}>
+                            <Skill item={skills.language} header="언어" />
+                        </ImageListItem>
+                    </Fade>
+                    <Fade in={show} style={{ transitionDelay: show ? "300ms" : "0ms" }}
+                        {...(show ? { timeout: 1000 } : {})}
+                    >
+                        <ImageListItem sx={{ overflow: "auto" }}>
+                            <Skill item={skills.os} header="OS" />
+                        </ImageListItem>
+                    </Fade>
+                    <Fade in={show} style={{ transitionDelay: show ? "400ms" : "0ms" }}
+                        {...(show ? { timeout: 1000 } : {})}
+                    >
+                        <ImageListItem sx={{ overflow: "auto" }}>
+                            <Skill item={skills.frame_lib} header="프레임워크 + 라이브러리" />
+                        </ImageListItem>
+                    </Fade>
+                    <Fade in={show} style={{ transitionDelay: show ? "500ms" : "0ms" }}
+                        {...(show ? { timeout: 1000 } : {})}
+                    >
+                        <ImageListItem sx={{ overflow: "auto" }}>
+                            <Skill item={skills.db} header="DB" />
+                        </ImageListItem>
+                    </Fade>
+                    <Fade in={show} style={{ transitionDelay: show ? "600ms" : "0ms" }}
+                        {...(show ? { timeout: 1000 } : {})}
+                    >
+                        <ImageListItem sx={{ overflow: "auto" }}>
+                            <Skill item={skills.ide} header="IDE" />
+                        </ImageListItem>
+                    </Fade>
+                    <Fade in={show} style={{ transitionDelay: show ? "700ms" : "0ms" }}
+                        {...(show ? { timeout: 1000 } : {})}
+                    >
+                        <ImageListItem sx={{ overflow: "auto" }}>
+                            <Skill item={skills.etc} header="ETC" />
+                        </ImageListItem>
+                    </Fade>
                 </ImageList>
             </Box>
         </Box>

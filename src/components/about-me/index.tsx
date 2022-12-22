@@ -5,7 +5,7 @@ import styles from './index.module.css';
 import ImageArea from './image-area';
 import IntroductionArea from './introduction-area';
 import { Grow } from '@mui/material';
-import { useContext, useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import TocContext from '../../contexts/toc-context';
 
 export default function AboutMeComp() {
@@ -21,17 +21,33 @@ export default function AboutMeComp() {
         }));
     }, [TocCtx.setPos])
 
+    const [show, setShow] = useState<boolean>(false);
+    useEffect(() => {
+        const target = document.querySelector("#AboutMe-GrowAction");
+        const callback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // entry.target.classList.add("fadeIn");
+                    setShow(true);
+                }
+            })
+        }
+        const options = {};
+        const myObserver = new IntersectionObserver(callback, options);
+        myObserver.observe(target as Element);
+    }, [])
+
     return (
         <Box className={styles.container} ref={element} id='AboutMe' >
             <Typography component="h2" className={styles.typo_title} id='AboutMe'>
                 About Me
             </Typography>
             <Box className={styles.inContainer}>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} id='AboutMe-GrowAction' >
                     <Grow
-                        in={true}
+                        in={show}
                         style={{ transformOrigin: '0 0 0' }}
-                        {...(true ? { timeout: 1000 } : {})}
+                        {...(show ? { timeout: 1000 } : {})}
                     >
                         <Grid xs={12} md={4} lg={4} sx={{ width: "fit-content !important" }}>
                             <ImageArea />
@@ -39,9 +55,9 @@ export default function AboutMeComp() {
                     </Grow>
 
                     <Grow
-                        in={true}
+                        in={show}
                         style={{ transformOrigin: '0 0 0' }}
-                        {...(true ? { timeout: 1000 } : {})}
+                        {...(show ? { timeout: 1000 } : {})}
                     >
                         <Grid xs={12} md={4} lg={4} sx={{ width: "fit-content !important" }}>
                             <IntroductionArea />
