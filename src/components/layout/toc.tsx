@@ -49,7 +49,7 @@ export default function Toc() {
     //! 스크롤시 헤더 값
     // console.log(currentId);
     //! 스크롤시 헤더 pos
-    console.log(TocCtx.active);
+    // console.log(TocCtx.active);
 
     return (
         <>

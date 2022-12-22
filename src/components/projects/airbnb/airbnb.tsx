@@ -83,7 +83,7 @@ export default function ProjectAirbnb() {
                         sx={{ width: "100%" }}
                     >
                         {images.map((item, i) => (
-                            <Paper variant='outlined' sx={{ minHeight: 300, position: "relative" }}>
+                            <Paper variant='outlined' sx={{ minHeight: 300, position: "relative" }} key={i}>
                                 <img src={item.url} alt={item.label} style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, objectFit: "cover", borderRadius: "3px" }} loading="lazy" />
                             </Paper>
                         ))}

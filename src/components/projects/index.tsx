@@ -23,13 +23,16 @@ export default function ProjectsComp() {
     useEffect(() => {
         if (!element.current) return;
         const rect = element.current.getBoundingClientRect();
+        console.log(rect.top, window.scrollY);
         TocCtx.setPos((pos) => ({
             ...pos,
             [element.current?.id as string]: rect.top + window.scrollY,
         }));
     }, [TocCtx.setPos])
 
-    return (
+
+    return (<>
+        <Box></Box>
         <Box className={styles.container} ref={element} id="Projects">
             <Typography component="h2" className={styles.typo_title} id='Projects'>
                 Projects
@@ -38,5 +41,6 @@ export default function ProjectsComp() {
             {/* 에어 비앤비 클론 코딩 */}
             <ProjectAirbnb />
         </Box >
+    </>
     )
 }

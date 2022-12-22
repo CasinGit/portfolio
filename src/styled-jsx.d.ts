@@ -3,7 +3,7 @@
 
 declare module React {
     interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
-        jsx?: boolean;
+        jsx?: boolean | undefined;
         global?: boolean;
     }
 }
