@@ -66,7 +66,7 @@ export default function SkillsComp() {
             ...pos,
             [element.current?.id as string]: rect.top + window.scrollY,
         }));
-    }, [TocCtx.setPos])
+    }, [TocCtx.setPos, element.current?.getBoundingClientRect().height])
 
     return (
         <Box className={styles.container} ref={element} id="Skills">

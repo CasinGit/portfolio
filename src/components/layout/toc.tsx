@@ -32,7 +32,7 @@ export default function Toc() {
         return () => {
             window.removeEventListener("scroll", onScroll);
         };
-    }, [pos]);
+    }, [TocCtx, pos]);
 
 
     useEffect(() => {
@@ -40,7 +40,7 @@ export default function Toc() {
         const headingElements = Array.from(document.querySelectorAll("h1, h2"));
         setHeadingEls(headingElements);
         headingElements.map((header) => {
-            observer.observe(header);
+            return observer.observe(header);
         })
     }, [])
 

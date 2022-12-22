@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react';
 
 const observerOption: IntersectionObserverInit = {
     threshold: 0,
-    rootMargin: '0px 0px 0px 0px',
+    // rootMargin: '0px 0px -139px -139px',
 };
 
 export const getIntersectionObserver = (setState: Dispatch<SetStateAction<string>>) => {

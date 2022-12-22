@@ -17,7 +17,7 @@ export default function ProjectsComp() {
             ...pos,
             [element.current?.id as string]: rect.top + window.scrollY,
         }));
-    }, [TocCtx.setPos])
+    }, [TocCtx.setPos, element.current?.getBoundingClientRect().height])
 
 
     return (<>
