@@ -1,7 +1,5 @@
 import styles from './index.module.css';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Skill from './skill';
 import { ImageList, ImageListItem } from '@mui/material';
