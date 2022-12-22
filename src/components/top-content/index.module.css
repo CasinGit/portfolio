@@ -10,7 +10,7 @@
 }
 
 .container::after {
-    background: url(../../public/background_image.jpg) top center;
+    background: url(../../../public/background_image.jpg) top center;
     background-size: cover;
     content: "";
     width: 100%;

@@ -1,5 +1,5 @@
 // import { Typography } from 'antd';
-import styles from './top-content.module.css';
+import styles from './index.module.css';
 import { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 
