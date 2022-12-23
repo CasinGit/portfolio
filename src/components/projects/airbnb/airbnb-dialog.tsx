@@ -45,8 +45,10 @@ export default function AirbnbDialog(
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Box>
-
+            <Box sx={{ display: "flex", px: 10, py: 3 }}>
+                <Typography>
+                    Airbnb 클론 코딩
+                </Typography>
             </Box>
         </Dialog>
     );

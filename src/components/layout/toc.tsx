@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import TocContext from "../../contexts/toc-context";
 import { getIntersectionObserver } from "../../lib/observer";
 
@@ -7,22 +7,31 @@ export default function Toc() {
     // const TocCtx = useContext(TocContext)!;
     const [currentId, setCurrentId] = useState<string>("");
     const [headingEls, setHeadingEls] = useState<Element[]>([]);
+    const [scrollPos, setScrollPos] = useState<number>(0);
 
     const TocCtx = useContext(TocContext)!;
     const { pos } = TocCtx;
+    const test = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const onScroll = () => {
-            const scrollTop = window.pageYOffset;
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.scrollY;
+            const clientHeight = document.documentElement.clientHeight;
+            setScrollPos(scrollTop);
+            // console.log(scrollHeight); //! 현재문서의 높이(창 사이즈에 따라 달라짐)
+            // console.log(scrollTop) //! 현재 스크롤탑의 값
+            // console.log(document.documentElement.clientHeight) //! 현재 화면 높이 값
 
-            if (scrollTop < pos.AboutMe) return TocCtx.setActive(0);
+            if (scrollTop < pos.AboutMe && scrollTop < (pos.AboutMe * 0.4)) return TocCtx.setActive(0);
 
-            if (pos.AboutMe <= scrollTop && scrollTop < pos.Skills) return TocCtx.setActive(1);
+            if (((pos.Careers - pos.Projects) + pos.Careers) * 0.6 <= scrollTop || (scrollTop + clientHeight) === scrollHeight) return TocCtx.setActive(4);
 
-            if (pos.Skills <= scrollTop && scrollTop < pos.Projects) return TocCtx.setActive(2);
+            if (((pos.Projects - pos.Skills) + pos.Projects) * 0.6 <= scrollTop && scrollTop < pos.Careers) return TocCtx.setActive(3);
 
-            if (pos.Projects <= scrollTop && scrollTop < pos.Careers) return TocCtx.setActive(3);
+            if (((pos.Skills - pos.AboutMe) + pos.Skills) * 0.6 <= scrollTop && scrollTop < pos.Projects) return TocCtx.setActive(2);
 
-            if (pos.Careers <= scrollTop) return TocCtx.setActive(4);
+            if ((pos.AboutMe * 0.4) <= scrollTop && scrollTop < pos.Skills) return TocCtx.setActive(1);
+
         };
 
         if (pos.AboutMe !== 0 && pos.Skills !== 0 && pos.Projects !== 0 && pos.Careers !== 0) {
@@ -62,6 +71,7 @@ export default function Toc() {
                     text-underline-offset: 5px;
                 }   
                 .toc {
+                    color: white;
                     width: 100%;
                     border-radius: 10px;
                     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
@@ -75,7 +85,8 @@ export default function Toc() {
             `}</style>
 
             {headingEls.length !== 0 &&
-                <Box sx={{ textAlign: "center" }}>
+                <Box sx={{ textAlign: "center" }} ref={test} >
+                    {scrollPos}
                     {headingEls.map((one, idx) => (
                         <Button href={`#${one.id}`} key={one.id}
                             className={idx === TocCtx.active ? "toc active" : "toc"}

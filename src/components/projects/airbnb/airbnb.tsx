@@ -134,7 +134,7 @@ export default function ProjectAirbnb() {
                             GitHub
                         </Typography>
                         <Typography ml={2}>
-                            <Link href='https://github.com/CasinGit/airbnb-ts' target="_blank" >
+                            <Link href='https://github.com/CasinGit/airbnb-ts' target="_blank" sx={{ color: "#0d6efd !important" }}>
                                 github.com/CasinGit/airbnb-ts
                             </Link>
                             <Typography variant='caption' ml={0.5}>
@@ -148,7 +148,7 @@ export default function ProjectAirbnb() {
                             URL
                         </Typography>
                         <Typography ml={2}>
-                            <Link href='https://casin-airbnb.vercel.app' target="_blank" >
+                            <Link href='https://casin-airbnb.vercel.app' target="_blank" sx={{ color: "#0d6efd !important" }}>
                                 casin-airbnb.vercel.app
                             </Link>
                             <Typography variant='caption' ml={0.5}>
