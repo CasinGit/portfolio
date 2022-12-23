@@ -64,7 +64,7 @@ export default function SkillsComp() {
         console.log(rect.top, window.scrollY);
         TocCtx.setPos((pos) => ({
             ...pos,
-            [element.current?.id as string]: rect.top + window.scrollY,
+            [element.current?.id as string]: Math.floor(rect.top + window.scrollY),
         }));
     }, [TocCtx.setPos, element.current?.getBoundingClientRect().height])
 

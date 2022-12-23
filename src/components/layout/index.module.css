@@ -30,8 +30,3 @@
     display: flex;
     justify-content: center;
 }
-
-a {
-    color: white !important;
-    mix-blend-mode: difference !important;
-}

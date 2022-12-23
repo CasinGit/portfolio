@@ -17,7 +17,7 @@ export default function AboutMeComp() {
         const rect = element.current.getBoundingClientRect();
         TocCtx.setPos((pos) => ({
             ...pos,
-            [element.current?.id as string]: rect.top + window.scrollY,
+            [element.current?.id as string]: Math.floor(rect.top + window.scrollY),
         }));
     }, [TocCtx.setPos])
 
