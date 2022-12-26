@@ -148,8 +148,8 @@ export default function ProjectAirbnb() {
                             URL
                         </Typography>
                         <Typography ml={2}>
-                            <Link href='https://casin-airbnb.vercel.app' target="_blank" sx={{ color: "#0d6efd !important" }}>
-                                casin-airbnb.vercel.app
+                            <Link href='https://casin-projects-clone.vercel.app' target="_blank" sx={{ color: "#0d6efd !important" }}>
+                                casin-projects-clone.vercel.app
                             </Link>
                             <Typography variant='caption' ml={0.5}>
                                 (새창에서 열기)
