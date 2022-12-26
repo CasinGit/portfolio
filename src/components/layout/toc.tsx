@@ -26,7 +26,7 @@ export default function Toc() {
 
             if (((pos.Careers - pos.Projects) + pos.Careers) * 0.6 <= scrollTop || (scrollTop + clientHeight) === scrollHeight) return TocCtx.setActive(4);
 
-            if (((pos.Projects - pos.Skills) + pos.Projects) * 0.6 <= scrollTop && scrollTop < pos.Careers) return TocCtx.setActive(3);
+            if (((pos.Projects - pos.Skills) + pos.Projects) * 0.7 <= scrollTop && scrollTop < pos.Careers) return TocCtx.setActive(3);
 
             if (((pos.Skills - pos.AboutMe) + pos.Skills) * 0.6 <= scrollTop && scrollTop < pos.Projects) return TocCtx.setActive(2);
 
