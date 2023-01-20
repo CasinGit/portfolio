@@ -86,7 +86,7 @@ export default function Toc() {
 
             {headingEls.length !== 0 &&
                 <Box sx={{ textAlign: "center" }} ref={test} >
-                    {scrollPos}
+                    {/* {scrollPos} */}
                     {headingEls.map((one, idx) => (
                         <Button href={`#${one.id}`} key={one.id}
                             className={idx === TocCtx.active ? "toc active" : "toc"}

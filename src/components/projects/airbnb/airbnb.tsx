@@ -11,28 +11,43 @@ import { useState } from 'react';
 import AirbnbDialog from './airbnb-dialog';
 
 //! 프로젝트 이미지 리스트
-const images = [
+export type imagesType = Array<{ url: string, label: string }>
+const images: imagesType = [
     {
-        url: "/projects/test/1.png",
-        label: "1"
+        url: "/projects/airbnb/1_main.png",
+        label: "1_main"
+    }, {
+        url: "/projects/airbnb/2_login.png",
+        label: "2_login"
+    }, {
+        url: "/projects/airbnb/3_google_login.png",
+        label: "3_google_login"
+    }, {
+        url: "/projects/airbnb/4_social_login_link.png",
+        label: "4_social_login_link"
+    }, {
+        url: "/projects/airbnb/5_host_map_search.png",
+        label: "5_host_map_search"
+    }, {
+        url: "/projects/airbnb/6_host_map_detail.png",
+        label: "6_host_map_detail"
+    }, {
+        url: "/projects/airbnb/7_host_photos.png",
+        label: "7_host_photos"
+    }, {
+        url: "/projects/airbnb/8_room_page.png",
+        label: "8_room_page"
+    }, {
+        url: "/projects/airbnb/9_booking_page.png",
+        label: "9_booking_page"
+    }, {
+        url: "/projects/airbnb/10_booking_paypal.png",
+        label: "10_booking_paypal"
+    }, {
+        url: "/projects/airbnb/11_booking_confirm.png",
+        label: "11_booking_confirm"
     },
-    {
-        url: "/projects/test/2.jpg",
-        label: "2"
-    },
-    {
-        url: "/projects/test/3.jpg",
-        label: "3"
-    },
-    {
-        url: "/projects/test/4.jpg",
-        label: "4"
-    },
-    {
-        url: "/projects/test/5.png",
-        label: "5"
-    },
-] as const;
+];
 
 export default function ProjectAirbnb() {
     const [open, setOpen] = useState<boolean>(false);
@@ -84,7 +99,7 @@ export default function ProjectAirbnb() {
                     >
                         {images.map((item, i) => (
                             <Paper variant='outlined' sx={{ minHeight: 300, position: "relative" }} key={i}>
-                                <img src={item.url} alt={item.label} style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, objectFit: "cover", borderRadius: "3px" }} loading="lazy" />
+                                <img src={item.url} alt={item.label} style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, objectFit: "contain", borderRadius: "3px" }} loading="lazy" />
                             </Paper>
                         ))}
                     </Carousel>
@@ -206,7 +221,7 @@ export default function ProjectAirbnb() {
                 상세보기
             </Button>
 
-            <AirbnbDialog state={open} close={handleCloseModal} />
+            <AirbnbDialog state={open} close={handleCloseModal} images={images} />
         </Paper >
     )
 }
