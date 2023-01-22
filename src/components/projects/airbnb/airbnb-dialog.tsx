@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
-import { Box, Paper, Link } from '@mui/material';
+import { Box, Paper, Link, Backdrop, CircularProgress } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import type { imagesType } from './airbnb';
@@ -27,6 +27,16 @@ const Transition = React.forwardRef(function Transition(
 export default function AirbnbDialog(
     { state, close, images }: { state: boolean, close: () => void, images: imagesType }
 ) {
+    const [backdrop, setBackdrop] = React.useState<boolean>(false);
+    const [backdropImg, setBackdropImg] = React.useState<string>("");
+    const handleClose = () => {
+        setBackdrop(false);
+        setBackdropImg("");
+    };
+    const handleOpen = (url: string) => {
+        setBackdropImg(url);
+        setBackdrop(true);
+    };
 
     return (
         <Dialog
@@ -67,13 +77,13 @@ export default function AirbnbDialog(
                 </Box>
                 <Box sx={{ width: "70%", textAlign: "center" }}>
                     <Typography>
-                        Next.js 프레임 워크 학습을 위해 진행한 프로젝트이며 CSR, SSR 기술에 대해 배우고 파일 시스템 기반 라우팅 방법을 배우게 되었음.
+                        Next.js 프레임 워크 학습을 위해 진행한 프로젝트이며 CSR, SSR 기술에 대해 배우고 파일 시스템 기반 라우팅 방법을 배울 수 있었던 개인 프로젝트이다.
                     </Typography>
                 </Box>
 
                 <Divider sx={{ width: "100%" }} />
 
-                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "70%" }}>
                     <Typography variant='h5' mb={1}>
                         - 주요 기능 -
                     </Typography>
@@ -98,11 +108,11 @@ export default function AirbnbDialog(
 
                 <Divider sx={{ width: "100%" }} />
 
-                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 1 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 1, width: "70%" }}>
                     <Typography variant='h5'>
                         - 사용 기술 -
                     </Typography>
-                    <Box sx={{ width: "80%" }}>
+                    <Box>
                         <Typography component="li">
                             Frontend : Next.js, TypeScript, Mui CSS
                         </Typography>
@@ -141,7 +151,15 @@ export default function AirbnbDialog(
                     <ImageList cols={2} gap={8} sx={{ width: "90vh", p: 1 }}>
                         {images.map((item, i) => (
                             <ImageListItem key={item.label} >
-                                <Paper sx={{ minHeight: 300, width: "auto", position: "relative" }} key={i}>
+                                <Paper onClick={() => {
+                                    handleOpen(item.url)
+                                }}
+                                    sx={{
+                                        minHeight: 300, width: "auto", position: "relative",
+                                        ":hover": { boxShadow: "2px 2px 5px 1px" }
+                                    }}
+                                    key={i}
+                                >
                                     <img src={item.url} alt={item.label} style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, objectFit: "contain", borderRadius: "3px" }} loading="lazy" />
                                 </Paper>
                             </ImageListItem>
@@ -150,6 +168,13 @@ export default function AirbnbDialog(
                 </Box>
 
             </Box>
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={backdrop}
+                onClick={handleClose}
+            >
+                <img src={backdropImg} alt={backdropImg} style={{ position: "absolute", width: "80%", height: "80%", objectFit: "contain" }} loading="lazy" />
+            </Backdrop>
         </Dialog>
     );
 }
