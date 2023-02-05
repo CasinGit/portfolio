@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
-import { Box, Paper, Link, Backdrop, CircularProgress } from '@mui/material';
+import { Box, Paper, Link, Backdrop } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import type { imagesType } from './airbnb';
@@ -70,12 +70,12 @@ export default function AirbnbDialog(
                         개인 프로젝트 / 2022년 11월
                     </Typography>
                 </Box>
-                <Box>
+                <Box sx={{ width: "70%" }}>
                     <Typography>
                         현재 서비스중인 Airbnb 사이트를 Next.js 프레임 워크로 구현한 프로젝트
                     </Typography>
                 </Box>
-                <Box sx={{ width: "70%", textAlign: "center" }}>
+                <Box sx={{ width: "70%" }}>
                     <Typography>
                         Next.js 프레임 워크 학습을 위해 진행한 프로젝트이며 CSR, SSR 기술에 대해 배우고 파일 시스템 기반 라우팅 방법을 배울 수 있었던 개인 프로젝트이다.
                     </Typography>

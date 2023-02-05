@@ -83,7 +83,7 @@ export default function ProjectAirbnb() {
             <Divider sx={{ my: 2 }} />
 
             {/* IMAGE & DESCRIPTION SECTION START */}
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{ width: "100%" }} >
 
                 {/* IMAGE SECTION START */}
                 <Grid xs={16} md={5.5}>

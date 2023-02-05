@@ -3,8 +3,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useContext, useEffect, useRef, useState } from 'react';
 import TocContext from '../../contexts/toc-context';
-import ProjectAirbnb from './airbnb/airbnb';
 import { Fade } from '@mui/material';
+import ProjectAirbnb from './airbnb/airbnb';
+import ProjectEatToday from './eattoday/eattoday';
+import ProjectSmartFactory from './smart_factory/smart_factory';
 
 export default function ProjectsComp() {
     const TocCtx = useContext(TocContext)!;
@@ -49,7 +51,8 @@ export default function ProjectsComp() {
             >
                 <Box id="Projects-FadeAction" gap={3} sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
                     <ProjectAirbnb />
-                    <ProjectAirbnb />
+                    <ProjectEatToday />
+                    <ProjectSmartFactory />
                 </Box>
             </Fade>
         </Box >
