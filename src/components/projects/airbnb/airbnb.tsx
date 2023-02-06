@@ -14,37 +14,37 @@ import AirbnbDialog from './airbnb-dialog';
 export type imagesType = Array<{ url: string, label: string }>
 const images: imagesType = [
     {
-        url: "/projects/airbnb/1_main.png",
+        url: "/portfolio/projects/airbnb/1_main.png",
         label: "1_main"
     }, {
-        url: "/projects/airbnb/2_login.png",
+        url: "/portfolio/projects/airbnb/2_login.png",
         label: "2_login"
     }, {
-        url: "/projects/airbnb/3_google_login.png",
+        url: "/portfolio/projects/airbnb/3_google_login.png",
         label: "3_google_login"
     }, {
-        url: "/projects/airbnb/4_social_login_link.png",
+        url: "/portfolio/projects/airbnb/4_social_login_link.png",
         label: "4_social_login_link"
     }, {
-        url: "/projects/airbnb/5_host_map_search.png",
+        url: "/portfolio/projects/airbnb/5_host_map_search.png",
         label: "5_host_map_search"
     }, {
-        url: "/projects/airbnb/6_host_map_detail.png",
+        url: "/portfolio/projects/airbnb/6_host_map_detail.png",
         label: "6_host_map_detail"
     }, {
-        url: "/projects/airbnb/7_host_photos.png",
+        url: "/portfolio/projects/airbnb/7_host_photos.png",
         label: "7_host_photos"
     }, {
-        url: "/projects/airbnb/8_room_page.png",
+        url: "/portfolio/projects/airbnb/8_room_page.png",
         label: "8_room_page"
     }, {
-        url: "/projects/airbnb/9_booking_page.png",
+        url: "/portfolio/projects/airbnb/9_booking_page.png",
         label: "9_booking_page"
     }, {
-        url: "/projects/airbnb/10_booking_paypal.png",
+        url: "/portfolio/projects/airbnb/10_booking_paypal.png",
         label: "10_booking_paypal"
     }, {
-        url: "/projects/airbnb/11_booking_confirm.png",
+        url: "/portfolio/projects/airbnb/11_booking_confirm.png",
         label: "11_booking_confirm"
     },
 ];

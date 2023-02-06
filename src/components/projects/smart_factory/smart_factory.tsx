@@ -14,25 +14,25 @@ import SmartFactoryDialog from './smart_factory-dialog';
 export type imagesType = Array<{ url: string, label: string }>
 const images: imagesType = [
     {
-        url: "/projects/smartfactory/1_server.png",
+        url: "/portfolio/projects/smartfactory/1_server.png",
         label: "1_server"
     }, {
-        url: "/projects/smartfactory/2_replace_part_main.png",
+        url: "/portfolio/projects/smartfactory/2_replace_part_main.png",
         label: "2_replace_part_main"
     }, {
-        url: "/projects/smartfactory/3_replace_part_edit.png",
+        url: "/portfolio/projects/smartfactory/3_replace_part_edit.png",
         label: "3_replace_part_edit"
     }, {
-        url: "/projects/smartfactory/4_production_plan_main.png",
+        url: "/portfolio/projects/smartfactory/4_production_plan_main.png",
         label: "4_production_plan_main"
     }, {
-        url: "/projects/smartfactory/5_production_plan_history.png",
+        url: "/portfolio/projects/smartfactory/5_production_plan_history.png",
         label: "5_production_plan_history"
     }, {
-        url: "/projects/smartfactory/6_materials_management.png",
+        url: "/portfolio/projects/smartfactory/6_materials_management.png",
         label: "6_materials_management"
     }, {
-        url: "/projects/smartfactory/7_materials_management_inout.png",
+        url: "/portfolio/projects/smartfactory/7_materials_management_inout.png",
         label: "7_materials_management_inout"
     },
 ];

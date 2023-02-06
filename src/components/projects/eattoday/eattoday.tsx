@@ -14,28 +14,28 @@ import EatTodayDialog from './eattoday-dialog';
 export type imagesType = Array<{ url: string, label: string }>
 const images: imagesType = [
     {
-        url: "/projects/eattoday/1_splash.png",
+        url: "/portfolio/projects/eattoday/1_splash.png",
         label: "1_splash"
     }, {
-        url: "/projects/eattoday/2_main.png",
+        url: "/portfolio/projects/eattoday/2_main.png",
         label: "2_main"
     }, {
-        url: "/projects/eattoday/3_store_search.png",
+        url: "/portfolio/projects/eattoday/3_store_search.png",
         label: "3_store_search"
     }, {
-        url: "/projects/eattoday/4_login.png",
+        url: "/portfolio/projects/eattoday/4_login.png",
         label: "4_login"
     }, {
-        url: "/projects/eattoday/5_store_info.png",
+        url: "/portfolio/projects/eattoday/5_store_info.png",
         label: "5_store_info"
     }, {
-        url: "/projects/eattoday/6_store_reservation.png",
+        url: "/portfolio/projects/eattoday/6_store_reservation.png",
         label: "6_store_reservation"
     }, {
-        url: "/projects/eattoday/7_store_history.png",
+        url: "/portfolio/projects/eattoday/7_store_history.png",
         label: "7_store_history"
     }, {
-        url: "/projects/eattoday/8_store_review.png",
+        url: "/portfolio/projects/eattoday/8_store_review.png",
         label: "8_store_review"
     },
 ];

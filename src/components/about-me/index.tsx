@@ -40,7 +40,7 @@ export default function AboutMeComp() {
     return (
         <Box className={styles.container} ref={element} id='AboutMe' >
             <Typography component="h2" className={styles.typo_title} id='AboutMe'>
-                About Me
+                ABOUT ME
             </Typography>
             <Box className={styles.inContainer}>
                 <Grid container spacing={2} id='AboutMe-GrowAction' >
