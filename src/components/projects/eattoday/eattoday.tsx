@@ -74,17 +74,17 @@ export default function ProjectEatToday() {
             <Divider sx={{ my: 2 }} />
 
             {/* IMAGE & DESCRIPTION SECTION START */}
-            <Grid container spacing={2}>
+            <Grid container sx={{ width: "100%" }} >
 
                 {/* IMAGE SECTION START */}
-                <Grid xs={16} md={5.5}>
+                <Grid xs={16} md={5} sx={{ mr: 2 }}>
                     <Carousel
                         autoPlay={false}
                         next={(next, active) => {
-                            console.log(`we left ${active}, and are now at ${next}`);
+                            // console.log(`we left ${active}, and are now at ${next}`);
                         }}
                         prev={(prev, active) => {
-                            console.log(`we left ${active}, and are now at ${prev}`);
+                            // console.log(`we left ${active}, and are now at ${prev}`);
                         }}
                         sx={{ width: "100%" }}
                     >
@@ -98,22 +98,16 @@ export default function ProjectEatToday() {
                 {/* IMAGE SECTION END */}
 
                 {/* SHORT DESCRIPTION START */}
-                <Grid xs={16} md={6}>
-                    <Typography aria-label='project-theme'>
-                        광주에 있는 맛집 정보를 찾아보고 방문 예약을 할 수 있는 서비스를 React Native를 사용하여 안드로이드 어플리케이션으로 구현
-                    </Typography>
-                    <Typography mt={2} aria-label='project-outline'>
-                        프로젝트의 Backend 서버를 Node.js의 Express를 사용하여 RESTful API 통신 요청 응답 구현을 메인으로 담당하였으며 프로젝트 완성 날짜를 맞추기 위해서 Frontend 개발도 다수 참여하였음.
-                    </Typography>
-                </Grid>
-                {/* SHORT DESCRIPTION END */}
-
-                <Divider sx={{ my: 2, width: "100%" }} />
-
-                {/* DETAIL DESCRIPTION START */}
-                <Grid container spacing={2} sx={{ width: "100%" }} >
-                    <Grid xs={16} md={6} aria-label='project-main-function' sx={{ display: "block" }}>
-
+                <Grid xs={16} md={6.75}>
+                    <Box>
+                        <Typography aria-label='project-theme'>
+                            광주에 있는 맛집 정보를 찾아보고 방문 예약을 할 수 있는 서비스를 React Native를 사용하여 안드로이드 어플리케이션으로 구현
+                        </Typography>
+                        <Typography mt={2} aria-label='project-outline'>
+                            프로젝트의 Backend 서버를 Node.js의 Express를 사용하여 RESTful API 통신 요청 응답 구현을 메인으로 담당하였으며 프로젝트 완성 날짜를 맞추기 위해서 Frontend 개발도 다수 참여하였음.
+                        </Typography>
+                    </Box>
+                    <Box aria-label='project-main-function' sx={{ mt: 2 }}>
                         {/* Project Main Functions */}
                         <Typography sx={{ fontWeight: 600 }}>
                             주요 기능
@@ -122,21 +116,27 @@ export default function ProjectEatToday() {
                             광주광역시 동구에서 제공하는 Open API를 이용하여 가게 정보 불러오기
                         </Typography>
                         <Typography ml={1} component="li">
-                            사용자 계정과 판매자 계정을 분리하여 차별화된 기능을 제공.
+                            사용자 계정과 판매자 계정을 분리하여 차별화된 기능을 제공
                         </Typography>
                         <Typography ml={1} component="li">
                             이용했던 가게에 리뷰와 별점을 남기고 다른 사용자가 작성한 리뷰를 볼 수 있는 기능
                         </Typography>
-                    </Grid>
+                    </Box>
+                </Grid>
+                {/* SHORT DESCRIPTION END */}
 
-                    <Grid xs={16} md={6} aria-label='project-etc'>
+                <Divider sx={{ my: 2, width: "100%" }} />
 
-                        {/* GitHub URL */}
+                {/* DETAIL DESCRIPTION START */}
+                <Grid container sx={{ width: "100%" }} rowSpacing={1}>
+
+                    {/* GitHub URL */}
+                    <Grid xs={16} md={6} aria-label='project-github'>
                         <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <GitHubIcon />
                             GitHub
                         </Typography>
-                        <Typography ml={2}>
+                        <Typography ml={2} sx={{ display: "flex", flexDirection: "column" }}>
                             <Link href='https://github.com/CasinGit/WhatEatToday' target="_blank" sx={{ color: "#0d6efd !important" }}>
                                 github.com/CasinGit/WhatEatToday
                             </Link>
@@ -144,72 +144,86 @@ export default function ProjectEatToday() {
                                 (새창에서 열기)
                             </Typography>
                         </Typography>
+                    </Grid>
 
-                        {/* Production URL */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Production URL */}
+                    <Grid xs={16} md={6} aria-label='project-url'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <LinkIcon />
                             URL
                         </Typography>
-                        <Typography ml={2}>
+                        <Typography ml={2} sx={{ display: "flex", flexDirection: "column" }}>
                             <Link href='#' target="_blank" sx={{ color: "#0d6efd !important" }}>
-
+                                {/* casin-projects-clone.vercel.app */}
                             </Link>
                             <Typography variant='caption' ml={0.5}>
                                 (새창에서 열기)
                             </Typography>
                         </Typography>
+                    </Grid>
 
-                        {/* Frontend Stack */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Frontend Stack */}
+                    <Grid xs={16} md={6} aria-label='project-frontend'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <FlipToFrontIcon />
                             Frontend
                         </Typography>
                         <Typography ml={2}>
                             React Native
                         </Typography>
+                    </Grid>
 
-                        {/* Backend Stack */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Backend Stack */}
+                    <Grid xs={16} md={6} aria-label='project-backend'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <FlipToBackIcon />
                             Backend
                         </Typography>
                         <Typography ml={2}>
                             Node.js, Express
                         </Typography>
+                    </Grid>
 
-                        {/* Used Database */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Used Database */}
+                    <Grid xs={16} md={6} aria-label='project-db'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <StorageIcon />
                             DB
                         </Typography>
                         <Typography ml={2}>
-                            MongoDB(+Mongoose)
+                            MongoDB(Mongoose)
                         </Typography>
+                    </Grid>
 
-                        {/* Etc */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Etc */}
+                    <Grid xs={16} md={6} aria-label='project-etc'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <MoreHorizIcon />
                             Etc
                         </Typography>
                         <Typography ml={2}>
                             Expo(배포)
                         </Typography>
-
                     </Grid>
+
                 </Grid>
                 {/* DETAIL DESCRIPTION END */}
 
             </Grid>
             {/* IMAGE & DESCRIPTION SECTION END */}
 
-            {/* OPEN PROJECT DETAIL MODAL */}
+            {/********** DO NOT CHANGE THIS SECTION! **********/}
+            {/* OPEN PROJECT DETAIL MODAL BUTTON */}
             <Button variant='outlined' fullWidth sx={{ mt: 3 }}
                 onClick={() => setOpen(true)}
             >
                 상세보기
             </Button>
 
+            {/* PROJECT DETAIL MODAL */}
             <EatTodayDialog state={open} close={handleCloseModal} images={images} />
+            {/********** DO NOT CHANGE THIS SECTION! **********/}
+
         </Paper >
     )
 }

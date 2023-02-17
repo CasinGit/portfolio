@@ -49,7 +49,7 @@ export default function ProjectSmartFactory() {
 
                 {/* Project Main Title */}
                 <Typography variant='h5' fontWeight={600} aria-label='project-name'>
-                    ERP + 생산 라인 계획 편성 프로그램
+                    스마트 팩토리 프로젝트
                 </Typography>
                 <Box display="flex" gap={1}>
 
@@ -71,17 +71,17 @@ export default function ProjectSmartFactory() {
             <Divider sx={{ my: 2 }} />
 
             {/* IMAGE & DESCRIPTION SECTION START */}
-            <Grid container spacing={2}>
+            <Grid container sx={{ width: "100%" }} >
 
                 {/* IMAGE SECTION START */}
-                <Grid xs={16} md={5.5}>
+                <Grid xs={16} md={5} sx={{ mr: 2 }}>
                     <Carousel
                         autoPlay={false}
                         next={(next, active) => {
-                            console.log(`we left ${active}, and are now at ${next}`);
+                            // console.log(`we left ${active}, and are now at ${next}`);
                         }}
                         prev={(prev, active) => {
-                            console.log(`we left ${active}, and are now at ${prev}`);
+                            // console.log(`we left ${active}, and are now at ${prev}`);
                         }}
                         sx={{ width: "100%" }}
                     >
@@ -95,22 +95,16 @@ export default function ProjectSmartFactory() {
                 {/* IMAGE SECTION END */}
 
                 {/* SHORT DESCRIPTION START */}
-                <Grid xs={16} md={6}>
-                    <Typography aria-label='project-theme'>
-                        생산 라인 계획 편성 기능과 자재 오삽입 방지 기능 + ERP 시스템을 연동한 생산 라인 통합 관리 프로그램을 만들었으며
-                    </Typography>
-                    <Typography aria-label='project-outline'>
-                        VB.NET 언어를 사용해 TCP/IP 소켓 통신 방식으로 서버와 클라이언트를 분리하여 구현하였음.
-                    </Typography>
-                </Grid>
-                {/* SHORT DESCRIPTION END */}
-
-                <Divider sx={{ my: 2, width: "100%" }} />
-
-                {/* DETAIL DESCRIPTION START */}
-                <Grid container spacing={2} sx={{ width: "100%" }} >
-                    <Grid xs={16} md={6} aria-label='project-main-function' sx={{ display: "block" }}>
-
+                <Grid xs={16} md={6.75}>
+                    <Box>
+                        <Typography aria-label='project-theme'>
+                            생산 라인 계획 편성 기능과 자재 오삽입 방지 기능 + ERP 시스템을 연동한 생산 관리 시스템
+                        </Typography>
+                        <Typography mt={2} aria-label='project-outline'>
+                            VB.NET 언어를 사용해 TCP/IP 소켓 통신 방식으로 서버와 클라이언트를 분리하여 구현하였음.
+                        </Typography>
+                    </Box>
+                    <Box aria-label='project-main-function' sx={{ mt: 3 }}>
                         {/* Project Main Functions */}
                         <Typography sx={{ fontWeight: 600 }}>
                             주요 기능
@@ -136,80 +130,79 @@ export default function ProjectSmartFactory() {
                         <Typography ml={1} component="li">
                             프로그램에 새로운 버전이 있을 때 프로그램 실행 또는 사용 중일 때 자동으로 업데이트하는 기능
                         </Typography>
-                    </Grid>
+                    </Box>
+                </Grid>
+                {/* SHORT DESCRIPTION END */}
 
-                    <Grid xs={16} md={6} aria-label='project-etc'>
+                <Divider sx={{ my: 2, width: "100%" }} />
 
-                        {/* GitHub URL */}
+                {/* DETAIL DESCRIPTION START */}
+                <Grid container sx={{ width: "100%" }} rowSpacing={1}>
+
+                    {/* GitHub URL */}
+                    <Grid xs={16} md={6} aria-label='project-github'>
                         <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <GitHubIcon />
                             GitHub
                         </Typography>
-                        <Typography ml={2}>
-                            {/* <Link href='#' target="_blank" sx={{ color: "#0d6efd !important" }}>
-                                GitHub 비공개
-                            </Link> */}
+                        <Typography ml={2} sx={{ display: "flex", flexDirection: "column" }}>
                             <Typography variant='caption' ml={0.5} sx={{ color: "red" }}>
                                 LG 협력사 관련 정보 공개 불가
                             </Typography>
                         </Typography>
+                    </Grid>
 
-                        {/* Production URL */}
-                        {/* <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
-                            <LinkIcon />
-                            URL
-                        </Typography>
-                        <Typography ml={2}>
-                            <Link href='#' target="_blank" sx={{ color: "#0d6efd !important" }}>
-
-                            </Link>
-                            <Typography variant='caption' ml={0.5}>
-                                (새창에서 열기)
-                            </Typography>
-                        </Typography> */}
-
-                        {/* Language Stack */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Language Stack */}
+                    <Grid xs={16} md={6} aria-label='project-frontend'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <FlipToBackIcon />
                             Language
                         </Typography>
                         <Typography ml={2}>
                             VB.NET(Framework 4.6.1)
                         </Typography>
+                    </Grid>
 
-                        {/* Used Database */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Used Database */}
+                    <Grid xs={16} md={6} aria-label='project-db'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <StorageIcon />
                             DB
                         </Typography>
                         <Typography ml={2}>
                             MsSQL
                         </Typography>
+                    </Grid>
 
-                        {/* Etc */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Etc */}
+                    <Grid xs={16} md={6} aria-label='project-etc'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <MoreHorizIcon />
                             Etc
                         </Typography>
                         <Typography ml={2}>
                             TCP/IP, Excel
                         </Typography>
-
                     </Grid>
+
                 </Grid>
                 {/* DETAIL DESCRIPTION END */}
 
             </Grid>
             {/* IMAGE & DESCRIPTION SECTION END */}
 
-            {/* OPEN PROJECT DETAIL MODAL */}
+            {/********** DO NOT CHANGE THIS SECTION! **********/}
+            {/* OPEN PROJECT DETAIL MODAL BUTTON */}
             <Button variant='outlined' fullWidth sx={{ mt: 3 }}
                 onClick={() => setOpen(true)}
             >
                 상세보기
             </Button>
 
+            {/* PROJECT DETAIL MODAL */}
             <SmartFactoryDialog state={open} close={handleCloseModal} images={images} />
+            {/********** DO NOT CHANGE THIS SECTION! **********/}
+
         </Paper >
     )
 }

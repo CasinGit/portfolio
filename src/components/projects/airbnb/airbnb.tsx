@@ -83,17 +83,17 @@ export default function ProjectAirbnb() {
             <Divider sx={{ my: 2 }} />
 
             {/* IMAGE & DESCRIPTION SECTION START */}
-            <Grid container spacing={2} sx={{ width: "100%" }} >
+            <Grid container sx={{ width: "100%" }} >
 
                 {/* IMAGE SECTION START */}
-                <Grid xs={16} md={5.5}>
+                <Grid xs={16} md={5} sx={{ mr: 2 }}>
                     <Carousel
                         autoPlay={false}
                         next={(next, active) => {
-                            console.log(`we left ${active}, and are now at ${next}`);
+                            // console.log(`we left ${active}, and are now at ${next}`);
                         }}
                         prev={(prev, active) => {
-                            console.log(`we left ${active}, and are now at ${prev}`);
+                            // console.log(`we left ${active}, and are now at ${prev}`);
                         }}
                         sx={{ width: "100%" }}
                     >
@@ -107,22 +107,16 @@ export default function ProjectAirbnb() {
                 {/* IMAGE SECTION END */}
 
                 {/* SHORT DESCRIPTION START */}
-                <Grid xs={16} md={6}>
-                    <Typography aria-label='project-theme'>
-                        현재 서비스중인 Airbnb를 클론 코딩한 프로젝트입니다.
-                    </Typography>
-                    <Typography mt={2} aria-label='project-outline'>
-                        Next.js 프레임 워크 학습을 위해 진행했던 프로젝트이며 GoogleMaps, 주변 장소 검색 API와 Firebase Storage를 이용한 숙소 위치와 사진을 업로드하는 기능을 구현했습니다.
-                    </Typography>
-                </Grid>
-                {/* SHORT DESCRIPTION END */}
-
-                <Divider sx={{ my: 2, width: "100%" }} />
-
-                {/* DETAIL DESCRIPTION START */}
-                <Grid container spacing={2} >
-                    <Grid xs={16} md={6} aria-label='project-main-function' sx={{ display: "block" }}>
-
+                <Grid xs={16} md={6.75}>
+                    <Box>
+                        <Typography aria-label='project-theme'>
+                            현재 서비스중인 Airbnb를 클론 코딩한 프로젝트입니다.
+                        </Typography>
+                        <Typography mt={2} aria-label='project-outline'>
+                            Next.js 프레임 워크 학습을 위해 진행했던 프로젝트이며 GoogleMaps, 주변 장소 검색 API와 Firebase Storage를 이용한 숙소 위치와 사진을 업로드하는 기능을 구현했습니다.
+                        </Typography>
+                    </Box>
+                    <Box aria-label='project-main-function' sx={{ mt: 3 }}>
                         {/* Project Main Functions */}
                         <Typography sx={{ fontWeight: 600 }}>
                             주요 기능
@@ -139,16 +133,22 @@ export default function ProjectAirbnb() {
                         <Typography ml={1} component="li">
                             내가 예약한 숙소 리스트 보는 기능
                         </Typography>
-                    </Grid>
+                    </Box>
+                </Grid>
+                {/* SHORT DESCRIPTION END */}
 
-                    <Grid xs={16} md={6} aria-label='project-etc'>
+                <Divider sx={{ my: 2, width: "100%" }} />
 
-                        {/* GitHub URL */}
+                {/* DETAIL DESCRIPTION START */}
+                <Grid container sx={{ width: "100%" }} rowSpacing={1}>
+
+                    {/* GitHub URL */}
+                    <Grid xs={16} md={6} aria-label='project-github'>
                         <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <GitHubIcon />
                             GitHub
                         </Typography>
-                        <Typography ml={2}>
+                        <Typography ml={2} sx={{ display: "flex", flexDirection: "column" }}>
                             <Link href='https://github.com/CasinGit/airbnb-ts' target="_blank" sx={{ color: "#0d6efd !important" }}>
                                 github.com/CasinGit/airbnb-ts
                             </Link>
@@ -156,13 +156,15 @@ export default function ProjectAirbnb() {
                                 (새창에서 열기)
                             </Typography>
                         </Typography>
+                    </Grid>
 
-                        {/* Production URL */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Production URL */}
+                    <Grid xs={16} md={6} aria-label='project-url'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <LinkIcon />
                             URL
                         </Typography>
-                        <Typography ml={2}>
+                        <Typography ml={2} sx={{ display: "flex", flexDirection: "column" }}>
                             <Link href='https://casin-projects-clone.vercel.app' target="_blank" sx={{ color: "#0d6efd !important" }}>
                                 casin-projects-clone.vercel.app
                             </Link>
@@ -170,58 +172,70 @@ export default function ProjectAirbnb() {
                                 (새창에서 열기)
                             </Typography>
                         </Typography>
+                    </Grid>
 
-                        {/* Frontend Stack */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Frontend Stack */}
+                    <Grid xs={16} md={6} aria-label='project-frontend'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <FlipToFrontIcon />
                             Frontend
                         </Typography>
                         <Typography ml={2}>
                             Next.js, TypeScript, Mui CSS
                         </Typography>
+                    </Grid>
 
-                        {/* Backend Stack */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Backend Stack */}
+                    <Grid xs={16} md={6} aria-label='project-backend'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <FlipToBackIcon />
                             Backend
                         </Typography>
                         <Typography ml={2}>
                             Next.js
                         </Typography>
+                    </Grid>
 
-                        {/* Used Database */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Used Database */}
+                    <Grid xs={16} md={6} aria-label='project-db'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <StorageIcon />
                             DB
                         </Typography>
                         <Typography ml={2}>
-                            MongoDB(+Mongoose)
+                            MongoDB(Mongoose)
                         </Typography>
+                    </Grid>
 
-                        {/* Etc */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Etc */}
+                    <Grid xs={16} md={6} aria-label='project-etc'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <MoreHorizIcon />
                             Etc
                         </Typography>
                         <Typography ml={2}>
                             Vercel(배포), Firebase Storage, GoogleMaps(+Places API), PayPal Sandbox
                         </Typography>
-
                     </Grid>
+
                 </Grid>
                 {/* DETAIL DESCRIPTION END */}
 
             </Grid>
             {/* IMAGE & DESCRIPTION SECTION END */}
 
-            {/* OPEN PROJECT DETAIL MODAL */}
+            {/********** DO NOT CHANGE THIS SECTION! **********/}
+            {/* OPEN PROJECT DETAIL MODAL BUTTON */}
             <Button variant='outlined' fullWidth sx={{ mt: 3 }}
                 onClick={() => setOpen(true)}
             >
                 상세보기
             </Button>
 
+            {/* PROJECT DETAIL MODAL */}
             <AirbnbDialog state={open} close={handleCloseModal} images={images} />
+            {/********** DO NOT CHANGE THIS SECTION! **********/}
+
         </Paper >
     )
 }
