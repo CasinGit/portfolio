@@ -39,8 +39,8 @@ export default function CareersComp() {
             </Typography>
             <Stack spacing={2}>
                 <Paper sx={{ p: 1 }}>Paper 1</Paper>
-                <Paper sx={{ p: 1 }}>Paper 2</Paper>
-                <Paper sx={{ p: 1 }}>Paper 3</Paper>
+                {/* <Paper sx={{ p: 1 }}>Paper 2</Paper> */}
+                {/* <Paper sx={{ p: 1 }}>Paper 3</Paper> */}
             </Stack>
         </Box >
     )

@@ -5,6 +5,7 @@ import Skill from './skill';
 import { Fade, ImageList, ImageListItem } from '@mui/material';
 import TocContext from '../../contexts/toc-context';
 import { useContext, useEffect, useRef, useState } from 'react';
+import Masonry from '@mui/lab/Masonry';
 
 export type skillType = { title: string, imgUrl: string };
 type skillsType = {
@@ -54,6 +55,22 @@ const skills: skillsType = {
     ]
 }
 
+function SkillCard({ show, header, item, delay }:
+    { show: boolean, header: string, item: Array<skillType>, delay: number }
+) {
+    return (
+        <Fade in={show} style={{ transitionDelay: show ? `${delay}ms` : "0ms" }}
+            {...(show ? { timeout: 1000 } : {})}
+        >
+            <Box>
+                <ImageListItem sx={{ overflow: "inherit" }}>
+                    <Skill item={item} header={header} />
+                </ImageListItem>
+            </Box>
+        </Fade>
+    )
+}
+
 export default function SkillsComp() {
     const TocCtx = useContext(TocContext)!;
     const element = useRef<Element>(null);
@@ -87,53 +104,17 @@ export default function SkillsComp() {
     return (
         <Box className={styles.container} ref={element} id="Skills">
             <Typography component="h2" className={styles.typo_title} id='Skills'>
-                Skills
+                Skill Stack
             </Typography>
             <Box className={styles.inContainer} id='Skills-FadeAction'>
-                <ImageList variant="masonry" cols={3} gap={10}>
-                    <Fade in={show} style={{ transitionDelay: show ? "200ms" : "0ms" }}
-                        {...(show ? { timeout: 1000 } : {})}
-                    >
-                        <ImageListItem sx={{ overflow: "auto" }}>
-                            <Skill item={skills.language} header="언어" />
-                        </ImageListItem>
-                    </Fade>
-                    <Fade in={show} style={{ transitionDelay: show ? "300ms" : "0ms" }}
-                        {...(show ? { timeout: 1000 } : {})}
-                    >
-                        <ImageListItem sx={{ overflow: "auto" }}>
-                            <Skill item={skills.os} header="OS" />
-                        </ImageListItem>
-                    </Fade>
-                    <Fade in={show} style={{ transitionDelay: show ? "400ms" : "0ms" }}
-                        {...(show ? { timeout: 1000 } : {})}
-                    >
-                        <ImageListItem sx={{ overflow: "auto" }}>
-                            <Skill item={skills.frame_lib} header="프레임워크 + 라이브러리" />
-                        </ImageListItem>
-                    </Fade>
-                    <Fade in={show} style={{ transitionDelay: show ? "500ms" : "0ms" }}
-                        {...(show ? { timeout: 1000 } : {})}
-                    >
-                        <ImageListItem sx={{ overflow: "auto" }}>
-                            <Skill item={skills.db} header="DB" />
-                        </ImageListItem>
-                    </Fade>
-                    <Fade in={show} style={{ transitionDelay: show ? "600ms" : "0ms" }}
-                        {...(show ? { timeout: 1000 } : {})}
-                    >
-                        <ImageListItem sx={{ overflow: "auto" }}>
-                            <Skill item={skills.ide} header="IDE" />
-                        </ImageListItem>
-                    </Fade>
-                    <Fade in={show} style={{ transitionDelay: show ? "700ms" : "0ms" }}
-                        {...(show ? { timeout: 1000 } : {})}
-                    >
-                        <ImageListItem sx={{ overflow: "auto" }}>
-                            <Skill item={skills.etc} header="ETC" />
-                        </ImageListItem>
-                    </Fade>
-                </ImageList>
+                <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
+                    <SkillCard show={show} header='언어' item={skills.language} delay={200} />
+                    <SkillCard show={show} header='프레임워크 + 라이브러리' item={skills.frame_lib} delay={300} />
+                    <SkillCard show={show} header='DB' item={skills.db} delay={400} />
+                    <SkillCard show={show} header='OS' item={skills.os} delay={500} />
+                    <SkillCard show={show} header='IDE' item={skills.ide} delay={600} />
+                    <SkillCard show={show} header='ETC' item={skills.etc} delay={700} />
+                </Masonry>
             </Box>
         </Box>
     )

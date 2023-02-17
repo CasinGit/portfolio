@@ -1,5 +1,5 @@
 import styles from '../index.module.css';
-import { Box, Button, Divider, Paper, Typography, Unstable_Grid2 as Grid } from "@mui/material";
+import { Box, Button, Divider, Link, Paper, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkIcon from '@mui/icons-material/Link';
 import FlipToFrontIcon from '@mui/icons-material/FlipToFront';
@@ -8,31 +8,28 @@ import StorageIcon from '@mui/icons-material/Storage';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Carousel from 'react-material-ui-carousel';
 import { useState } from 'react';
-import DefaultDialog from './DEFAULT-dialog';
+import DefaultDialog from './default-dialog';
 
 //! 프로젝트 이미지 리스트
-const images = [
+export type imagesType = Array<{ url: string, label: string }>
+const images: imagesType = [
     {
-        url: "/projects/test/1.png",
+        url: "/portfolio/projects/test/1_img.png",
         label: "1"
-    },
-    {
-        url: "/projects/test/2.jpg",
+    }, {
+        url: "/portfolio/projects/test/2_img.png",
         label: "2"
-    },
-    {
-        url: "/projects/test/3.jpg",
+    }, {
+        url: "/portfolio/projects/test/3_img.png",
         label: "3"
-    },
-    {
-        url: "/projects/test/4.jpg",
+    }, {
+        url: "/portfolio/projects/test/4_img.png",
         label: "4"
-    },
-    {
-        url: "/projects/test/5.png",
+    }, {
+        url: "/portfolio/projects/test/5_img.png",
         label: "5"
     },
-] as const;
+];
 
 export default function ProjectDefault() {
     const [open, setOpen] = useState<boolean>(false);
@@ -46,19 +43,19 @@ export default function ProjectDefault() {
 
                 {/* Project Main Title */}
                 <Typography variant='h5' fontWeight={600} aria-label='project-name'>
-                    Airbnb 클론 코딩
+                    프로젝트 제목
                 </Typography>
                 <Box display="flex" gap={1}>
 
                     {/* Project Type */}
                     <Typography variant='subtitle1' aria-label='project-type'>
-                        개인 프로젝트
+                        개인 프로젝트 or 팀 프로젝트
                     </Typography>
                     /
 
                     {/* Project Period */}
                     <Typography variant='subtitle1' color="GrayText" aria-label='project-period'>
-                        2022년 11월
+                        20**년 *월 ~ 20**년 *월
                     </Typography>
                 </Box>
 
@@ -68,23 +65,23 @@ export default function ProjectDefault() {
             <Divider sx={{ my: 2 }} />
 
             {/* IMAGE & DESCRIPTION SECTION START */}
-            <Grid container spacing={2}>
+            <Grid container sx={{ width: "100%" }} >
 
                 {/* IMAGE SECTION START */}
-                <Grid xs={16} md={5.5}>
+                <Grid xs={16} md={5} sx={{ mr: 2 }}>
                     <Carousel
                         autoPlay={false}
                         next={(next, active) => {
-                            console.log(`we left ${active}, and are now at ${next}`);
+                            // console.log(`we left ${active}, and are now at ${next}`);
                         }}
                         prev={(prev, active) => {
-                            console.log(`we left ${active}, and are now at ${prev}`);
+                            // console.log(`we left ${active}, and are now at ${prev}`);
                         }}
                         sx={{ width: "100%" }}
                     >
                         {images.map((item, i) => (
-                            <Paper variant='outlined' sx={{ minHeight: 300, position: "relative" }}>
-                                <img src={item.url} alt={item.label} style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, objectFit: "cover", borderRadius: "3px" }} loading="lazy" />
+                            <Paper variant='outlined' sx={{ minHeight: 300, position: "relative" }} key={i}>
+                                <img src={item.url} alt={item.label} style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, objectFit: "contain", borderRadius: "3px" }} loading="lazy" />
                             </Paper>
                         ))}
                     </Carousel>
@@ -92,103 +89,129 @@ export default function ProjectDefault() {
                 {/* IMAGE SECTION END */}
 
                 {/* SHORT DESCRIPTION START */}
-                <Grid xs={16} md={6}>
-                    <Typography aria-label='project-theme'>
-                        현재 서비스중인 Airbnb를 클론 코딩한 프로젝트입니다.
-                    </Typography>
-                    <Typography mt={2} aria-label='project-outline'>
-                        Next.js 프레임 워크 학습을 위해 진행했던 프로젝트이며 GoogleMaps, 주변 장소 검색 API와 Firebase Storage를 이용한 숙소 위치와 사진을 업로드하는 기능을 구현했습니다.
-                    </Typography>
+                <Grid xs={16} md={6.75}>
+                    <Box>
+                        <Typography aria-label='project-theme'>
+                            프로젝트 간단 설명
+                        </Typography>
+                        <Typography mt={2} aria-label='project-outline'>
+                            프로젝트 상세 설명
+                        </Typography>
+                    </Box>
+                    <Box aria-label='project-main-function' sx={{ mt: 3 }}>
+                        {/* Project Main Functions */}
+                        <Typography sx={{ fontWeight: 600 }}>
+                            주요 기능
+                        </Typography>
+                        <Typography ml={1} component="li">
+                            프로젝트 주요 기능 1
+                        </Typography>
+                        <Typography ml={1} component="li">
+                            프로젝트 주요 기능 2
+                        </Typography>
+                    </Box>
                 </Grid>
                 {/* SHORT DESCRIPTION END */}
 
                 <Divider sx={{ my: 2, width: "100%" }} />
 
                 {/* DETAIL DESCRIPTION START */}
-                <Grid container spacing={2} >
-                    <Grid xs={16} md={6} aria-label='project-main-function' sx={{ display: "block" }}>
+                <Grid container sx={{ width: "100%" }} rowSpacing={1}>
 
-                        {/* Project Main Functions */}
-                        <Typography sx={{ fontWeight: 600 }}>
-                            주요 기능
-                        </Typography>
-                        <Typography ml={2} sx={{}}>
-                            NextAuth를 이용한 소셜 미디어 로그인, GoogleMaps를 이용한 위치 확인, 주변 장소 검색 API를 사용하여 숙소 위치 검색, 숙소 예약시 paypal로 결제하는 기능
-                        </Typography>
-
-                    </Grid>
-
-                    <Grid xs={16} md={6} aria-label='project-etc'>
-
-                        {/* GitHub URL */}
+                    {/* GitHub URL */}
+                    <Grid xs={16} md={6} aria-label='project-github'>
                         <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <GitHubIcon />
                             GitHub
                         </Typography>
-                        <Typography ml={2}>
-                            깃헙 주소...
+                        <Typography ml={2} sx={{ display: "flex", flexDirection: "column" }}>
+                            <Link href='#' target="_blank" sx={{ color: "#0d6efd !important" }}>
+                                Github URL
+                            </Link>
+                            <Typography variant='caption' ml={0.5}>
+                                (새창에서 열기)
+                            </Typography>
                         </Typography>
+                    </Grid>
 
-                        {/* Production URL */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Production URL */}
+                    <Grid xs={16} md={6} aria-label='project-url'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <LinkIcon />
                             URL
                         </Typography>
-                        <Typography ml={2}>
-                            배포 주소...
+                        <Typography ml={2} sx={{ display: "flex", flexDirection: "column" }}>
+                            <Link href='#' target="_blank" sx={{ color: "#0d6efd !important" }}>
+                                Project URL
+                            </Link>
+                            <Typography variant='caption' ml={0.5}>
+                                (새창에서 열기)
+                            </Typography>
                         </Typography>
+                    </Grid>
 
-                        {/* Frontend Stack */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Frontend Stack */}
+                    <Grid xs={16} md={6} aria-label='project-frontend'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <FlipToFrontIcon />
                             Frontend
                         </Typography>
                         <Typography ml={2}>
-                            프론트엔드 사용 기술...
+                            프론트엔드 사용 기술
                         </Typography>
+                    </Grid>
 
-                        {/* Backend Stack */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Backend Stack */}
+                    <Grid xs={16} md={6} aria-label='project-backend'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <FlipToBackIcon />
                             Backend
                         </Typography>
                         <Typography ml={2}>
-                            백엔드 사용 기술...
+                            백엔드 사용 기술
                         </Typography>
+                    </Grid>
 
-                        {/* Used Database */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Used Database */}
+                    <Grid xs={16} md={6} aria-label='project-db'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <StorageIcon />
                             DB
                         </Typography>
                         <Typography ml={2}>
-                            사용한 DB...
+                            DB 사용 기술
                         </Typography>
+                    </Grid>
 
-                        {/* Etc */}
-                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600, mt: 1 }}>
+                    {/* Etc */}
+                    <Grid xs={16} md={6} aria-label='project-etc'>
+                        <Typography gap={1} sx={{ display: "flex", fontWeight: 600 }}>
                             <MoreHorizIcon />
                             Etc
                         </Typography>
                         <Typography ml={2}>
-                            Etc...
+                            기타 사용 기술
                         </Typography>
-
                     </Grid>
+
                 </Grid>
                 {/* DETAIL DESCRIPTION END */}
 
             </Grid>
             {/* IMAGE & DESCRIPTION SECTION END */}
 
-            {/* OPEN PROJECT DETAIL MODAL */}
+            {/********** DO NOT CHANGE THIS SECTION! **********/}
+            {/* OPEN PROJECT DETAIL MODAL BUTTON */}
             <Button variant='outlined' fullWidth sx={{ mt: 3 }}
                 onClick={() => setOpen(true)}
             >
                 상세보기
             </Button>
 
-            <DefaultDialog state={open} close={handleCloseModal} />
+            {/* PROJECT DETAIL MODAL */}
+            <DefaultDialog state={open} close={handleCloseModal} images={images} />
+            {/********** DO NOT CHANGE THIS SECTION! **********/}
+
         </Paper >
     )
 }

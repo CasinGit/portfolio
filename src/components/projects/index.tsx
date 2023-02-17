@@ -7,6 +7,7 @@ import { Fade } from '@mui/material';
 import ProjectAirbnb from './airbnb/airbnb';
 import ProjectEatToday from './eattoday/eattoday';
 import ProjectSmartFactory from './smart_factory/smart_factory';
+import ProjectDefault from './default/default';
 
 export default function ProjectsComp() {
     const TocCtx = useContext(TocContext)!;
@@ -50,6 +51,7 @@ export default function ProjectsComp() {
                 {...(show ? { timeout: 1000 } : {})}
             >
                 <Box id="Projects-FadeAction" gap={3} sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+                    {/* <ProjectDefault /> */}
                     <ProjectAirbnb />
                     <ProjectEatToday />
                     <ProjectSmartFactory />

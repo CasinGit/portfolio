@@ -4,10 +4,11 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    background-color: bisque;
+    background-color: azure;
     z-index: 0;
-    padding: 10px;
-    padding-bottom: 30px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 .inContainer {
@@ -25,5 +26,5 @@
     text-shadow: 2px 2px 5px gray;
     text-decoration: underline darkslategray solid 3px;
     text-underline-offset: 10px;
-    margin-bottom: 20px !important;
+    margin-bottom: 30px !important;
 }

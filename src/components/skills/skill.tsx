@@ -7,7 +7,13 @@ import { ImageList, ImageListItem, Typography } from "@mui/material";
 export default function Skill({ item, header }: { item: Array<skillType>, header: string }) {
     return (
         <Grid xs={4} sm={4} md={4} sx={{ pb: 1 }}>
-            <Paper elevation={5} sx={{ p: 2, m: 1, textAlign: "center" }}>
+            <Paper elevation={5} sx={{
+                p: 2, m: 1, textAlign: "center"
+                , transition: "all 0.2s linear !important", ":hover": {
+                    // boxShadow: "0px 0.1px 3px 0.5px",
+                    transform: "scale(1.03)"
+                }
+            }}>
                 <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
                     {header}
                 </Typography>
