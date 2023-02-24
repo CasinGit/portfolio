@@ -6,8 +6,9 @@
     width: 100%;
     background-color: whitesmoke;
     z-index: 0;
-    padding: 10px;
-    padding-bottom: 30px;
+    /* padding: 10px; */
+    padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 .inContainer {

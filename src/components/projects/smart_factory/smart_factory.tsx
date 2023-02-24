@@ -95,7 +95,7 @@ export default function ProjectSmartFactory() {
                 {/* IMAGE SECTION END */}
 
                 {/* SHORT DESCRIPTION START */}
-                <Grid xs={16} md={6.75}>
+                <Grid xs={16} md={6.7}>
                     <Box>
                         <Typography aria-label='project-theme'>
                             생산 라인 계획 편성 기능과 자재 오삽입 방지 기능 + ERP 시스템을 연동한 생산 관리 시스템

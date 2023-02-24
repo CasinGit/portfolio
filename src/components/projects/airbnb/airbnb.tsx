@@ -107,7 +107,7 @@ export default function ProjectAirbnb() {
                 {/* IMAGE SECTION END */}
 
                 {/* SHORT DESCRIPTION START */}
-                <Grid xs={16} md={6.75}>
+                <Grid xs={16} md={6.7}>
                     <Box>
                         <Typography aria-label='project-theme'>
                             현재 서비스중인 Airbnb를 클론 코딩한 프로젝트입니다.

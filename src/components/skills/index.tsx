@@ -30,7 +30,7 @@ const skills: skillsType = {
     ],
     frame_lib: [
         { title: "Express.js", imgUrl: "/portfolio/logo/express.png" },
-        { title: "React", imgUrl: "/portfolio/logo/_React.png" },
+        { title: "React", imgUrl: "/portfolio/logo/React.png" },
         { title: "ReactNative", imgUrl: "/portfolio/logo/React_native.png" },
         { title: "Next.js", imgUrl: "/portfolio/logo/Nextjs-logo.svg" },
         { title: "Redux", imgUrl: "/portfolio/logo/Redux.png" },
@@ -78,7 +78,7 @@ export default function SkillsComp() {
     useEffect(() => {
         if (!element.current) return;
         const rect = element.current.getBoundingClientRect();
-        console.log(rect.top, window.scrollY);
+        // console.log(rect.top, window.scrollY);
         TocCtx.setPos((pos) => ({
             ...pos,
             [element.current?.id as string]: Math.floor(rect.top + window.scrollY),

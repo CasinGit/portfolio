@@ -1,12 +1,13 @@
 .App {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  width: 100% !important;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -20,4 +21,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

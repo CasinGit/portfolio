@@ -20,11 +20,11 @@ export function TocContextProvider({ children }: PropsWithChildren) {
     const [active, setActive] = useState(0);
 
     useEffect(() => {
-        console.log("TOC CONTEXT pos =>", pos);
+        // console.log("TOC CONTEXT pos =>", pos);
     }, [pos])
 
     useEffect(() => {
-        console.log("TOC CONTEXT active =>", active)
+        // console.log("TOC CONTEXT active =>", active);
     }, [active])
 
     return (

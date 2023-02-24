@@ -29,10 +29,10 @@ function DetailCard({ Show, Icon, Title, Caption, Time }:
                         <Icon />
                     </Avatar>
                     <Box>
-                        <Typography sx={{ fontWeight: "bold", fontSize: 22, width: "500px", }}>
+                        <Typography sx={{ fontWeight: "bold", fontSize: 22 }}>
                             {Title}
                         </Typography>
-                        <Typography sx={{ fontSize: 18 }}>
+                        <Typography sx={{ fontSize: 18, width: "max-content" }}>
                             {Caption}
                         </Typography>
                     </Box>

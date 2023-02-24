@@ -16,7 +16,7 @@ export default function ProjectsComp() {
     useEffect(() => {
         if (!element.current) return;
         const rect = element.current.getBoundingClientRect();
-        console.log(rect.top, window.scrollY);
+        // console.log(rect.top, window.scrollY);
         TocCtx.setPos((pos) => ({
             ...pos,
             [element.current?.id as string]: Math.floor(rect.top + window.scrollY),

@@ -7,6 +7,14 @@ import SkillsComp from './components/skills';
 import TopContentComp from './components/top-content';
 
 export default function App() {
+  const isMobile = /iPhone|iPad|iPod|BlackBerry|Windows Phone|Android/i.test(window.navigator.userAgent)
+
+  if (isMobile) {
+    console.log(`current device is mobile!\n${window.navigator.userAgent}`);
+  } else {
+    console.log(`current device is not mobile!\n${window.navigator.userAgent}`);
+  }
+
   return (
     <div className='App'>
       <Typography component="h2" id='Top' />

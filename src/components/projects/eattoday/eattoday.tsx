@@ -98,7 +98,7 @@ export default function ProjectEatToday() {
                 {/* IMAGE SECTION END */}
 
                 {/* SHORT DESCRIPTION START */}
-                <Grid xs={16} md={6.75}>
+                <Grid xs={16} md={6.7}>
                     <Box>
                         <Typography aria-label='project-theme'>
                             광주에 있는 맛집 정보를 찾아보고 방문 예약을 할 수 있는 서비스를 React Native를 사용하여 안드로이드 어플리케이션으로 구현
